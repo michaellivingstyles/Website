@@ -1,0 +1,75 @@
+@font-face {font-family: 'Main'; src: url('/fonts/Roboto-Light.ttf');}
+@font-face {font-family: 'RobotoReg'; src: url('/fonts/Roboto-Regular.ttf');}
+@font-face {font-family: 'RobotoMed'; src: url('/fonts/Roboto-Medium.ttf');}
+@font-face {font-family: 'GraySmall'; src: url('/fonts/Roboto-LightItalic.ttf');}
+@font-face {font-family: 'GrayText'; src: url('/fonts/Miramar.ttf');}
+@font-face {font-family: 'GrayBold'; src: url('/fonts/Miramar-Bold.ttf');}
+*{margin:0; padding:0}
+*::selection{background:#c4df9b; color:#376000}
+*::-moz-selection{background:#c4df9b; color:#376000}
+body{font-family:Main;}
+ul,ol{list-style:none outside none}
+img, fieldset{border:none}
+::-webkit-input-placeholder{color:#b7b7b7}
+:-moz-placeholder{color:#b7b7b7}
+.placeholder{color:#aaa}
+.left{float:left; display:block}
+.right{float:right; display:block}
+.clear{clear:both}
+
+/* ---------- footer ------------ */
+/*footer-first-section*/
+.footer-first-section {width:100%;background-color:#f7f7f7;}
+.footer-firstrow {margin:0 auto;max-width:1170px;padding-top:60px;padding-bottom:60px;}
+/*footer image*/
+.footer-image {width:370px;height:320px;}
+/*footer philosophy*/
+.footer-philosophy{color:#acacac}
+.footer-philosophy h3{font:34px 'GrayText'; text-align:left; line-height:34px;margin: 0}
+.footer-philosophy h2{font:56px 'GrayText'; text-align:left; line-height:44px;margin: 0}
+.footer-philosophy p{font:14px 'GraySmall'; text-align:left; line-height:18px;margin: 18px 0 0 0}
+
+/* footer email subscribe */
+.footer-emailsub{color:#acacac}
+.footer-emailsub label{ font:22px 'GrayText'; color:#acacac; line-height:30px; }
+.footer-emailsub label strong{ font-weight:normal; font-size:34px;}
+.footer-emailsub p{font:11px 'GraySmall'; color:#c2c2c2; text-align:left; line-height:14px;}
+
+.footer-emailsub .field{position:relative; margin:10px 0 0 0}
+.footer-emailsub .txt{border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; box-shadow:none; height:24px; line-height:24px; padding:3px 75px 3px 5px; width:218px; font-size:.875em; font-family:'Main'; font-size: 16px; color:#b7b7b7}
+.footer-emailsub .txt:hover, .footer-emailsub .txt:focus{box-shadow:0 0 5px #d7d7d7 inset}
+.footer-emailsub .btn{font:14 'RobotoReg'; color:#ffffff; background-image:none; background-color:#000000; border:none; border-radius:0 3px 3px 0; width:110px; height:32px; padding:4px 0; position:absolute; top:0; right:0}
+
+/*footer social links*/
+.footer-social{margin-top:30px; color:#acacac;}
+.footer-social h3{font:24px 'GrayText'; text-align:left; margin-bottom: 24px}
+.footer-social a{margin-right: 50px;     opacity: .3; }
+
+/*footer-second-section*/
+/*footer awards*/
+.footer-second-section {width:100%;background-color:#333333;}
+.footer-awards{margin:0 auto;max-width:1170px; padding: 25px 0 25px 0; text-align:center}
+.footer-awards img{opacity:0.6}
+
+/*footer-third-section*/
+.footer-third-section {width:100%;color:#636363;background-color:#000000;}
+
+/*footer links & site info */
+.footer-links {padding-top:28px;margin:0 auto;max-width:1170px}
+.footer-links dt { display: block; margin:0; font-family:"Miramar-Bold";font-size:16px;line-height:24px}
+.footer-links dd { display: block; margin:0;}
+.footer-links a{ font-family:"Main";font-size:16px;line-height:28px;color:#636363;text-decoration:none}
+.footer-contact {text-align:right;font-family:"RobotoReg";font-size:14px;line-height:4px;padding:0;margin:0;}
+.footer-contact h2{font-family:"GrayBold";font-size:16px;line-height:14px;}
+.footer-contact h3{font-family:"RobotoMed";font-size:18px;line-height:14px;}
+.footer-contact p{height:15px}
+.footer-contact h4{font-family:"RobotoReg";font-size:18px;line-height:0px;}
+
+.footer-siteinfo{margin:0 auto;max-width:1170px}
+.site-info{font-family:"Main"; text-align:left; color:#555555; margin-bottom:10px;}
+.site-info .copyright{font-size:16px;line-height:24px}
+.site-info .info{font-size:12px; line-height:18px}
+
+.payment {text-align: right;display: inline-block;}
+.payment img{ position: relative; padding-left:17px; padding-right:0px; opacity:0.3;}
+
