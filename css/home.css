@@ -13,25 +13,26 @@
 .menubar ul ul{position:absolute;top:100%;list-style:none;background:#fff;box-shadow:0 3px 3px rgba(0,0,0,0.2);display:none;}
 .menubar ul ul ul{position:absolute;left:100%;top:0;}
 
-.shopbycat {margin-top:30px;display:table}
-.shopbycattext {font-family:"GrayBold";font-size:18px;text-align:center;display:table-cell;padding-bottom:5px}
+.shopbycat {margin-top:30px;}
+.shopbycattext {font-family:"GrayBold";font-size:18px;text-align:center;padding-bottom:5px}
+.shopbycattext a{color: #000000;text-decoration:none;}
 .shopbycat a{color: #000000;}
-.shopbycatrow {float:left}
-.shopbycatrow img{border:0}
-.shopbycatimg { position:relative;width:370px; height:275px;float:left} 
-.shopbycatimg label,.shopbycatimg div{display:none;width:100%;  text-decoration:none; padding:0;margin:0}
-.shopbycatimg:hover{cursor:pointer} 
-.shopbycatimg:hover p{ display:block;color:#FFF;width:100%; z-index:10;height:100%;  background:#000;filter:alpha(opacity=70);-moz-opacity:0.7;opacity: 0.7;}
+
+.shopbycatimg { position:relative;width:31.62393%;padding:0;margin:0;float:left} 
+.shopbycatimg img{width:100%; }
+.shopbycatimg label,.shopbycatimg div,.shopbycatimg p{display:none;width:100%;  text-decoration:none; }
+.shopbycatimg:hover{cursor:pointer;padding:0;margin:0} 
+.shopbycatimg:hover p{ display:block;position: absolute;left:0;top:0;color:#FFF;width:100%; z-index:50;height:100%;  background:#000;filter:alpha(opacity=70);-moz-opacity:0.7;opacity: 0.7;padding:0;margin:0}
  .shopbycatimg:hover div{ display:block;z-index:100;color: #ffffff;position: absolute;transform:translate(-50%,-50%);left:50%;top: 40%; margin:0;padding:0;}
- .shopbycatimg:hover div label{ display:block; font: 30px "GrayReg";text-align:center;z-index:100;color: #ffffff; }
- .shopbycatimg:hover div label span{ position:absolute;display:block;width:150px;left:50%;transform:translateX(-50%);font: 12px "RobotoReg";height:30px;line-height:30px;border-style: solid;border-width: 1px;margin-top:10px;margin-bottom:0}
+ .shopbycatimg:hover div label{ display:block; font: 2.56vw "GrayReg";text-align:center;z-index:100;color: #ffffff; }
+ .shopbycatimg:hover div label span{ position:absolute;display:block;left:50%;transform:translateX(-50%);font: 1vw "RobotoReg";height:3em;line-height:3em;width:11em;border-style: solid;border-width: 1px;margin-top:10px;margin-bottom:0}
  
-.shopbycatimgexp { display:none;position:relative;width:370px; height:275px;cursor:pointer;float:left} 
-.shopbycatimgexp p{ color:#FFF;width:100%; z-index:10;height:100%;  background:#000;filter:alpha(opacity=70);-moz-opacity:0.7;opacity: 0.7;}
-.shopbycatimgexp label,.shopbycatimgexp div{width:100%;  text-decoration:none; padding:0;margin:0}
-.shopbycatimgexp div{ z-index:100;color: #ffffff;position: absolute;transform:translate(-50%,-50%);left:50%;top: 40%; margin:0;padding:0;}
- .shopbycatimgexp div label{ font: 30px "GrayReg";text-align:center;z-index:100;color: #ffffff; }
- .shopbycatimgexp div label span{ position:absolute;width:150px;left:50%;transform:translateX(-50%);font: 12px "RobotoReg";height:30px;line-height:30px;border-style: solid;border-width: 1px;margin-top:10px;margin-bottom:0}
+.shopbycatimgexp { position:relative;width:31.62393%;cursor:pointer;padding:0;margin:0;float:left} 
+.shopbycatimgexp img{width:100%; }
+.shopbycatimgexp p{ display:block;position: absolute;left:0;top:0;color:#FFF;width:100%; z-index:50;height:100%;  background:#000;filter:alpha(opacity=70);-moz-opacity:0.7;opacity: 0.7;padding:0;margin:0}
+ .shopbycatimgexp div{ display:block;z-index:100;color: #ffffff;position: absolute;transform:translate(-50%,-50%);left:50%;top: 40%; margin:0;padding:0;}
+ .shopbycatimgexp div label{ display:block; font: 2.56vw "GrayReg";text-align:center;z-index:100;color: #ffffff; }
+ .shopbycatimgexp div label span{ position:absolute;display:block;left:50%;transform:translateX(-50%);font: 1vw "RobotoReg";height:3em;line-height:3em;width:11em;border-style: solid;border-width: 1px;margin-top:10px;margin-bottom:0}
  
 .brands-title {font-family:'Main';margin:20px 0 20px 0;text-align:center}
 .campaign-list li{float:left; margin:0 55px 0 0 }
