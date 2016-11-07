@@ -22,7 +22,7 @@
 	.shopbycattext {font-family:"GrayBold";font-size:12px;text-align:center;padding-bottom:5px}
 }
 
-.shopbycatcol{ position:relative;width:31.62393%;padding:0;margin:0;float:left}
+.shopbycatcol{ position:relative;width:31.623932%;padding:0;margin:0;float:left}
 .shopbycatimg { position:relative;width:100%;padding:0;margin:0;} 
 .shopbycatimg img{width:100%; }
 .shopbycatimg label,.shopbycatimg div,.shopbycatimg p{display:none;width:100%;  }
@@ -34,7 +34,7 @@
  .shopbycatimgexp div label{ display:block; width:100%;font: 30px "GrayReg";text-align:center;z-index:100;color: #ffffff; }
  .shopbycatimgexp div label span{ position:absolute;display:block;left:50%;transform:translateX(-50%);font: 12px "RobotoReg";height:30px;line-height:30px;width:150px;border-style: solid;border-width: 1px;margin-top:10px;margin-bottom:0}
  
- .catalogcontent {position:relative;width:100%;padding:0;margin:0;float:left}
+ .catalogcontent {position:relative;width:100%;padding:0;margin:0;}
  .catalogcontent img { margin-bottom:15px;cursor:pointer;}
  
 .brands-title {font-family:'Main';margin:20px 0 20px 0;text-align:center}
