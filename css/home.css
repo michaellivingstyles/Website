@@ -21,7 +21,7 @@
 @media only screen and (max-width:1024px){
 	.shopbycattext {font-family:"GrayBold";font-size:12px;text-align:center;padding-bottom:5px}
 }
-.shopbycatrow {margin-top:30px;display:block;}
+
 .shopbycatcol{ position:relative;width:31.62393%;padding:0;margin:0;float:left}
 .shopbycatimg { position:relative;width:100%;padding:0;margin:0;} 
 .shopbycatimg img{width:100%; }
@@ -33,6 +33,9 @@
  .shopbycatimgexp div{ display:block;z-index:100;color: #ffffff;position: absolute;transform:translate(-50%,-50%);left:50%;top: 40%; width:100%; margin:0;padding:0;}
  .shopbycatimgexp div label{ display:block; width:100%;font: 30px "GrayReg";text-align:center;z-index:100;color: #ffffff; }
  .shopbycatimgexp div label span{ position:absolute;display:block;left:50%;transform:translateX(-50%);font: 12px "RobotoReg";height:30px;line-height:30px;width:150px;border-style: solid;border-width: 1px;margin-top:10px;margin-bottom:0}
+ 
+ .catalogcontent {position:relative;width:100%;padding:0;margin:0;}
+ .catalogcontent img { margin-bottom:15px;cursor:pointer;}
  
 .brands-title {font-family:'Main';margin:20px 0 20px 0;text-align:center}
 .campaign-list li{float:left; margin:0 55px 0 0 }
