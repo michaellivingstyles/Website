@@ -18,21 +18,20 @@
 .shopbycattext a{color: #000000;text-decoration:none;}
 .shopbycat a{color: #000000;}
 
+@media only screen and (max-width:1024px){
+	.shopbycattext {font-family:"GrayBold";font-size:12px;text-align:center;padding-bottom:5px}
+}
+
 .shopbycatimg { position:relative;width:31.62393%;padding:0;margin:0;float:left} 
 .shopbycatimg img{width:100%; }
-.shopbycatimg label,.shopbycatimg div,.shopbycatimg p{display:none;width:100%;  text-decoration:none; }
-.shopbycatimg:hover{cursor:pointer;padding:0;margin:0} 
-.shopbycatimg:hover p{ display:block;position: absolute;left:0;top:0;color:#FFF;width:100%; z-index:50;height:100%;  background:#000;filter:alpha(opacity=70);-moz-opacity:0.7;opacity: 0.7;padding:0;margin:0}
- .shopbycatimg:hover div{ display:block;z-index:100;color: #ffffff;position: absolute;transform:translate(-50%,-50%);left:50%;top: 40%; margin:0;padding:0;}
- .shopbycatimg:hover div label{ display:block; font: 2.56vw "GrayReg";text-align:center;z-index:100;color: #ffffff; }
- .shopbycatimg:hover div label span{ position:absolute;display:block;left:50%;transform:translateX(-50%);font: 1vw "RobotoReg";height:3em;line-height:3em;width:11em;border-style: solid;border-width: 1px;margin-top:10px;margin-bottom:0}
- 
+.shopbycatimg label,.shopbycatimg div,.shopbycatimg p{display:none;width:100%;  }
+
 .shopbycatimgexp { position:relative;width:31.62393%;cursor:pointer;padding:0;margin:0;float:left} 
 .shopbycatimgexp img{width:100%; }
 .shopbycatimgexp p{ display:block;position: absolute;left:0;top:0;color:#FFF;width:100%; z-index:50;height:100%;  background:#000;filter:alpha(opacity=70);-moz-opacity:0.7;opacity: 0.7;padding:0;margin:0}
- .shopbycatimgexp div{ display:block;z-index:100;color: #ffffff;position: absolute;transform:translate(-50%,-50%);left:50%;top: 40%; margin:0;padding:0;}
- .shopbycatimgexp div label{ display:block; font: 2.56vw "GrayReg";text-align:center;z-index:100;color: #ffffff; }
- .shopbycatimgexp div label span{ position:absolute;display:block;left:50%;transform:translateX(-50%);font: 1vw "RobotoReg";height:3em;line-height:3em;width:11em;border-style: solid;border-width: 1px;margin-top:10px;margin-bottom:0}
+ .shopbycatimgexp div{ display:block;z-index:100;color: #ffffff;position: absolute;transform:translate(-50%,-50%);left:50%;top: 40%; width:100%; margin:0;padding:0;}
+ .shopbycatimgexp div label{ display:block; width:100%;font: 30px "GrayReg";text-align:center;z-index:100;color: #ffffff; }
+ .shopbycatimgexp div label span{ position:absolute;display:block;left:50%;transform:translateX(-50%);font: 12px "RobotoReg";height:30px;line-height:30px;width:150px;border-style: solid;border-width: 1px;margin-top:10px;margin-bottom:0}
  
 .brands-title {font-family:'Main';margin:20px 0 20px 0;text-align:center}
 .campaign-list li{float:left; margin:0 55px 0 0 }
