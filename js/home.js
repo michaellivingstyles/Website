@@ -76,9 +76,6 @@ function showCatalog(index)
 			var anoDiv = document.getElementById(divid);
 			anoDiv.style.display = "block";
 		}
-		else{
-			curDiv.style.marginTop = "0";
-		}
 		var conDiv = document.getElementById("catalogcontent"+ i);
 		conDiv.innerHTML = "";
 		conDiv.style.display = "none";
@@ -102,17 +99,33 @@ function genCatalog(index)
 		{
 			var con1 = "";
 			var con2 = "";
+			//var marginPercent = "3.8961%";
+			//if( j == index % 3 ) marginPercent = "4.05405%";
 			for (var i=1; i < 100; i++) {
 				var path = "img/home"+index+"-"+j + "-" + i + ".jpg";
-				var m= getImgMargin(index-1, j-1, i-1);
-				if( m == -1) break;
-				if(index < 4 ||  j != index % 3 || i == 1){
-					if( m == 0){ con1 += '<img src="'+path+'" />';}
-					else{ con1 += '<img style="margin-right:15px;" src = "' + path+ '" />';}
+				var margin= getImgMargin(index-1, j-1, i-1);
+				if( margin == -1)
+				{
+				 	if( index > 3 && i == 1)
+				 	{
+				 		con1 = "<img src=img/home-fill.jpg>";
+				 	}
+				 	break;
+				}
+				if(index < 4 ||  j != index % 3 || i == 1)
+				{
+					if( margin == 0){ con1 += '<img src="'+path+'" />';}
+					else{ 
+						con1 += genImgrow(index, j, i, margin);
+						i += margin;
+					}
 				}
 				else{
-					if( m == 0){ con2 += '<img src="'+path+'" />';}
-					else{ con2 += '<img style="margin-right:15px;" src = "' + path+ '" />';} 
+					if( margin == 0){ con2 += '<img src="'+path+'" />';}
+					else{ 
+					      con1 += genImgrow(index, j, i, margin);
+						i += margin;
+					} 
 				}
 			}
 			divid = "catalogcontent" + j; 
@@ -123,20 +136,31 @@ function genCatalog(index)
 				divid = "catalogcontent" + index; 
 				var conDiv = document.getElementById(divid);
 				conDiv.innerHTML=con2;
-				if( con1 == ""){
-					var divid = "shopbycatimg"+ index;
-					var curDiv = document.getElementById(divid);
-					curDiv.style.marginTop = "305px";
-				}
 			}
 		}
 }
 
+function genImgrow(index, col, i, margin)
+{
+	var con = "";
+	var path = "img/home"+index+"-"+col + "-" + i + ".jpg";
+	con += '<div class="catalognimgrow" ><div class="catalog2imgrowleft"><img src = "' 
+			+ path+ '" /></div>';
+	path = "img/home"+index+"-"+col + "-" +( i+1) + ".jpg";
+	con += '<div class="catalog2imgrowright"><img src = "' + path + '"/>';
+	if( margin == 2)
+	{
+		path = "img/home"+index+"-"+col + "-" +( i+2) + ".jpg";
+		con += '<img src="'+path+'">';
+	}
+	con += "</div></div>";
+	return con;
+}
 
 function getImgMargin(index, col, n) {  
     var catalogImages = [ [[0,0],[0,1,0,1,0,0,1,0],[1,0,1,0,0]],
-    						[[0,0,1,0,1,0,1,0,0],[0,0,0,0],[0,0,1,0,1,0,1,0]],
-    						[[0,0,1,0,0,0],[1,0,1,0,0,1,0,0],[0,0,0]],
+    						[[0,0,1,0,1,0,2,0,0],[0,0,0,0],[0,0,1,0,1,0,1,0]],
+    						[[0,0,1,0,0,0],[1,0,2,0,0,2,0,0],[0,0,0]],
     						[[],[0,1,0,0,1,0],[]],
     						[[0,0,1,0,0],[0,0,0],[0,0,0,1,0,0]],
     						[[0,1,0,0,0,0,1,0],[0,1,0,0,1,0],[0]] ];
