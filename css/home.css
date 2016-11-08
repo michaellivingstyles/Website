@@ -2,25 +2,58 @@
 .header-text {font-size:10px;height: 110px; 
     vertical-align:middle;  
     display:table-cell; }
-/*------------menubar---------------*/
-.menubar{padding-top:20px;width:1170px;font-size:16px;}
-.menubar ul li{position:relative;}
-.menubar ul li a{text-decoration:none;color:#777;padding:10px 20px;display:block;background:url(detail.png) bottom right no-repeat;}
-.menubar ul li a:only-child{background:none;}
-.menubar ul li:hover{background:#777;}
-.menubar ul li:hover>a{color:#fff;}
-.menubar ul li:hover>ul{display:block;}nav>ul>li{display:inline-block;}
-.menubar ul ul{position:absolute;top:100%;list-style:none;background:#fff;box-shadow:0 3px 3px rgba(0,0,0,0.2);display:none;}
-.menubar ul ul ul{position:absolute;left:100%;top:0;}
+
+/* ---------- Navbar ----------------- */
+.navbar{ margin:30px 0 20px 0;}
+.navbar-menu{ width:98.29059%;margin:0;padding:0;float:left;}
+.navbar-search {width:1.70941%;margin:0;padding:0;float:right}
+.navbar-search img{width:16px;height:16px;margin-bottom:4px}
+
+.mnav{width:100%;}
+.mnav a {margin-right:1.5em; font: 18px 'GrayText'; text-decoration:none; color:#000 }
+@media only screen and (max-width:1150px){
+	.mnav a {margin-right:0.9em;font-size:17px;}
+}
+/*
+@media only screen and (max-width:1024px){
+	.mnav a {margin-right:1.4em;font-size:7px;}
+}
+*/
+#nav .submenu{display:none; position:absolute;top:36px; left:-125px; width:720px; padding:10px 10px 15px 10px; background-color:rgba(255,255,255,.9); background-color:#fff\0/; *background-color:#fff; border:1px solid #d7d7d7; border-top:none; box-shadow:0 1px 3px rgba(0,0,0,.2); z-index:1100;
+border-radius:0 0 5px 5px;
+-moz-border-radius:0 0 5px 5px;
+-webkit-border-radius:0 0 5px 5px
+}
+#nav .submenu.current{z-index:1120}
+#nav .submenu li{width:220px; margin:0 10px; float:left; padding:0 0 5px 0}
+#nav .submenu li a{display:block; text-decoration:none; color:#acacac; padding:5px 0}
+#nav .submenu li a:hover{color:#acd373}
+#nav .submenu li a:hover .campaign{color:#6eb809}
+#nav .submenu .campaign{font:500 1.25em 'Advent Pro', sans-serif; color:#464646}
+#nav .submenu .campaign-desc{font:.75em Arial, sans-serif}
+
+#nav .submenu dl{width:220px; margin:0 10px; float:left}
+#nav .submenu dl a{display:block; text-decoration:none}
+#nav .submenu dl a:hover{color:#6eb809}
+#nav .submenu dt{font:500 1.25em 'Advent Pro', sans-serif; padding:0 0 5px 0; margin-top:10px}
+#nav .submenu dt a{color:#464646; background:url(../../pc/image/layout/category_icons.png) no-repeat 0 0; padding-left:30px}
+#nav .submenu dt.furniture a{background-position:0 0}
+#nav .submenu dt.lighting a{background-position:0 -30px}
+#nav .submenu dt.rugs a{background-position:0 -60px}
+#nav .submenu dt.homedecor a{background-position:0 -90px}
+#nav .submenu dt.kitchenware a{background-position:0 -119px}
+#nav .submenu dt.pets a{background-position:0 -152px}
+#nav .submenu dd{font:.875em Arial, sans-serif}
+#nav .submenu dd a{margin:5px 0; color:#959595}
+
+#nav-bubble-ongoing{width:63px; height:20px; position:absolute; top:-9px; left:27px; display:none}
+#nav-bubble-ongoing.hover{background-position: 0 -1005px}
+
 
 /*--------------shop by catalog ------------------------------*/
 .shopbycat {margin-top:30px;display:block;width:100%}
 .shopbycattext {font-family:"GrayBold";font-size:18px;text-align:center;padding-bottom:5px;}
 .shopbycattext a{color: #000000;text-decoration:none;}
-
-@media only screen and (max-width:1024px){
-	.shopbycattext {font-family:"GrayBold";font-size:12px;text-align:center;padding-bottom:5px}
-}
 
 .shopbycatcol{ position:relative;width:31.623932%;padding:0;margin:0;float:left}
 .shopbycatimg { position:relative;width:100%;} 
