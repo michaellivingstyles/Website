@@ -44,7 +44,8 @@
  .catalogimglink a img { margin-bottom:15px;}
  .catalogimglink a span{ display:none;}
  .catalogimglink:hover a img{ opacity: 0.15;}
- .catalogimglink:hover a span{display:block; position: absolute;transform:translate(-50%,-50%);left:50%;top: 50%;width:100%;font: 30px "GrayReg";text-align:center;color: #000000; }
+ .catalogimglink:hover a span{display:block; position: absolute;transform:translate(-50%,-50%);left:50%;top: 50%;width:100%;font: 16px "RobotoReg";text-align:center;color: #000000; }
+  .catalogimglink:hover a span strong{font: 24px "GrayBold";}
 
  /* --------------------------------------------------------------*/
  
