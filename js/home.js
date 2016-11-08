@@ -114,24 +114,18 @@ function genCatalog(index)
 				}
 				if(index < 4 ||  j != index % 3 || i == 1)
 				{
-					if( margin == 0){ con1 += '<img src="'+path+'" />';}
-					else{ 
 						con1 += genImgrow(index, j, i, margin);
-						i += margin;
-					}
 				}
 				else{
-					if( margin == 0){ con2 += '<img src="'+path+'" />';}
-					else{ 
-					      con1 += genImgrow(index, j, i, margin);
-						i += margin;
-					} 
+						con2 += genImgrow(index, j, i, margin);
 				}
+				if( margin < 3)  i += margin;
+				else if( margin == 3) i += 2;
 			}
 			divid = "catalogcontent" + j; 
 			var conDiv = document.getElementById(divid);
 			conDiv.innerHTML=con1;
-			if( index > 3 &&  j == index % 3)
+			if( index > 3 &&  j == index % 3 ) 
 			{
 				divid = "catalogcontent" + index; 
 				var conDiv = document.getElementById(divid);
@@ -144,21 +138,41 @@ function genImgrow(index, col, i, margin)
 {
 	var con = "";
 	var path = "img/home"+index+"-"+col + "-" + i + ".jpg";
-	con += '<div class="catalognimgrow" ><div class="catalog2imgrowleft"><img src = "' 
-			+ path+ '" /></div>';
-	path = "img/home"+index+"-"+col + "-" +( i+1) + ".jpg";
-	con += '<div class="catalog2imgrowright"><img src = "' + path + '"/>';
-	if( margin == 2)
+	con += '<div class="catalogimgrow" >';
+	if( margin == 0)
 	{
-		path = "img/home"+index+"-"+col + "-" +( i+2) + ".jpg";
-		con += '<img src="'+path+'">';
+		con += '<div class="catalogimglink" >';
+		con += '<a><img src="'+path+'" /><span>abc</span></a>';
 	}
-	con += "</div></div>";
+	else if( margin < 3){
+		con += '<div class="catalogimgrowleft"><div class="catalogimglink" ><a><img src = "' 
+				+ path+ '" /><span>left</span></a></div></div>';
+		path = "img/home"+index+"-"+col + "-" +( i+1) + ".jpg";
+		con += '<div class="catalogimgrowright"><div class="catalogimglink" ><a><img src = "' + path + '"/><span>right</span></a></div>';
+		if( margin == 2)
+		{
+			path = "img/home"+index+"-"+col + "-" +( i+2) + ".jpg";
+			con += '<div class="catalogimglink" ><a><img src="'+path+'"><span>right bottom</span></a></div>';
+		}
+	}else if( margin == 3){
+		con += '<div class="catalogimgrowleft"><div class="catalogimglink" ><a><img src = "' 
+				+ path+ '" /><span>left top</span></a></div>';
+		path = "img/home"+index+"-"+col + "-" +( i+1) + ".jpg";
+		con +=  '<div class="catalogimglink" ><a><img src = "' 
+				+ path+ '" /><span>left bottom</span></a></div>';
+		path = "img/home"+index+"-"+col + "-" +( i+2) + ".jpg";
+		con += '</div><div class="catalogimgrowright"><div class="catalogimglink" ><a><img src = "' + path + '"/><span>right</span></a></div>';
+	}else if( margin == 4){
+		con += '<div class="catalogimgrowleft"><div class="catalogimglink" ><a><img src = "' 
+				+ path+ '" /><span>left</span></a></div></div>';
+	}
+	con += '</div></div><div class="clear"></div>';
 	return con;
 }
 
+/*0: whole line 1:left right 2:left right right 3:left left right 4:left none*/
 function getImgMargin(index, col, n) {  
-    var catalogImages = [ [[0,0],[0,1,0,1,0,0,1,0],[1,0,1,0,0]],
+    var catalogImages = [ [[0,0],[0,1,0,1,0,0,1,0],[1,0,3,0,0,4]],
     						[[0,0,1,0,1,0,2,0,0],[0,0,0,0],[0,0,1,0,1,0,1,0]],
     						[[0,0,1,0,0,0],[1,0,2,0,0,2,0,0],[0,0,0]],
     						[[],[0,1,0,0,1,0],[]],
@@ -166,4 +180,15 @@ function getImgMargin(index, col, n) {
     						[[0,1,0,0,0,0,1,0],[0,1,0,0,1,0],[0]] ];
     if( n >= catalogImages[index][col].length) return -1; 
     return catalogImages[index][col][n];
+}
+
+function getImgTip(index, col, n) {  
+    var catalogImageTips= [ [["LOFT & BUNK BEDS","BED ACCESSORIES"],[0,1,0,1,0,0,1,0],[1,0,1,0,0]],
+    						[[0,0,1,0,1,0,2,0,0],[0,0,0,0],[0,0,1,0,1,0,1,0]],
+    						[[0,0,1,0,0,0],[1,0,2,0,0,2,0,0],[0,0,0]],
+    						[[],[0,1,0,0,1,0],[]],
+    						[[0,0,1,0,0],[0,0,0],[0,0,0,1,0,0]],
+    						[[0,1,0,0,0,0,1,0],[0,1,0,0,1,0],[0]] ];
+    if( n >= catalogImageTips[index][col].length) return ""; 
+    return catalogImageTips[index][col][n];
 }
