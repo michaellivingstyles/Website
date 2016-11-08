@@ -37,6 +37,10 @@
  .catalogcontent {position:relative;width:100%;padding:0;margin:0;}
  .catalogcontent img { margin-bottom:15px;cursor:pointer;}
  
+ .catalog2imgrow {width:100%;}
+ .catalog2imgrowleft {width:48.05194%;margin-right:3.8961%;float:left;}
+ .catalog2imgrowright {width:48.05194%;float:left;}
+ 
 .brands-title {font-family:'Main';margin:20px 0 20px 0;text-align:center}
 .campaign-list li{float:left; margin:0 55px 0 0 }
 .campaign-img{border:1px solid #d7d7d7; position:relative; z-index:700}
