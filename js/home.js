@@ -137,34 +137,35 @@ function genCatalog(index)
 function genImgrow(index, col, i, margin)
 {
 	var con = "";
+
 	var path = "img/home"+index+"-"+col + "-" + i + ".jpg";
 	con += '<div class="catalogimgrow" >';
 	if( margin == 0)
 	{
 		con += '<div class="catalogimglink" >';
-		con += '<a><img src="'+path+'" /><span>abc</span></a>';
+		con += '<a><img src="'+path+'" /><span>'+getImgTip(index-1, col-1, i-1)+'</span></a>';
 	}
 	else if( margin < 3){
 		con += '<div class="catalogimgrowleft"><div class="catalogimglink" ><a><img src = "' 
-				+ path+ '" /><span>left</span></a></div></div>';
+				+ path+ '" /><span>'+getImgTip(index-1, col-1, i-1)+'</span></a></div></div>';
 		path = "img/home"+index+"-"+col + "-" +( i+1) + ".jpg";
-		con += '<div class="catalogimgrowright"><div class="catalogimglink" ><a><img src = "' + path + '"/><span>right</span></a></div>';
+		con += '<div class="catalogimgrowright"><div class="catalogimglink" ><a><img src = "' + path + '"/><span>'+getImgTip(index-1, col-1, i)+'</span></a></div>';
 		if( margin == 2)
 		{
 			path = "img/home"+index+"-"+col + "-" +( i+2) + ".jpg";
-			con += '<div class="catalogimglink" ><a><img src="'+path+'"><span>right bottom</span></a></div>';
+			con += '<div class="catalogimglink" ><a><img src="'+path+'"><span>'+getImgTip(index-1, col-1, i+1)+'</span></a></div>';
 		}
 	}else if( margin == 3){
 		con += '<div class="catalogimgrowleft"><div class="catalogimglink" ><a><img src = "' 
-				+ path+ '" /><span>left top</span></a></div>';
+				+ path+ '" /><span>'+getImgTip(index-1, col-1, i-1)+'</span></a></div>';
 		path = "img/home"+index+"-"+col + "-" +( i+1) + ".jpg";
 		con +=  '<div class="catalogimglink" ><a><img src = "' 
-				+ path+ '" /><span>left bottom</span></a></div>';
+				+ path+ '" /><span>l'+getImgTip(index-1, col-1, i)+'</span></a></div>';
 		path = "img/home"+index+"-"+col + "-" +( i+2) + ".jpg";
-		con += '</div><div class="catalogimgrowright"><div class="catalogimglink" ><a><img src = "' + path + '"/><span>right</span></a></div>';
+		con += '</div><div class="catalogimgrowright"><div class="catalogimglink" ><a><img src = "' + path + '"/><span>'+getImgTip(index-1, col-1, i+1)+'</span></a></div>';
 	}else if( margin == 4){
 		con += '<div class="catalogimgrowleft"><div class="catalogimglink" ><a><img src = "' 
-				+ path+ '" /><span>left</span></a></div></div>';
+				+ path+ '" /><span>'+getImgTip(index-1, col-1, i-1)+'</span></a></div></div>';
 	}
 	con += '</div></div><div class="clear"></div>';
 	return con;
@@ -176,19 +177,21 @@ function getImgMargin(index, col, n) {
     						[[0,0,1,0,1,0,2,0,0],[0,0,0,0],[0,0,1,0,1,0,1,0]],
     						[[0,0,1,0,0,0],[1,0,2,0,0,2,0,0],[0,0,0]],
     						[[],[0,1,0,0,1,0],[]],
-    						[[0,0,1,0,0],[0,0,0],[0,0,0,1,0,0]],
+    						[[0,0,1,0,0],[0,0,0],[0,0,1,0,0]],
     						[[0,1,0,0,0,0,1,0],[0,1,0,0,1,0],[0]] ];
     if( n >= catalogImages[index][col].length) return -1; 
     return catalogImages[index][col][n];
 }
 
 function getImgTip(index, col, n) {  
-    var catalogImageTips= [ [["LOFT & BUNK BEDS","BED ACCESSORIES"],[0,1,0,1,0,0,1,0],[1,0,1,0,0]],
-    						[[0,0,1,0,1,0,2,0,0],[0,0,0,0],[0,0,1,0,1,0,1,0]],
-    						[[0,0,1,0,0,0],[1,0,2,0,0,2,0,0],[0,0,0]],
-    						[[],[0,1,0,0,1,0],[]],
-    						[[0,0,1,0,0],[0,0,0],[0,0,0,1,0,0]],
-    						[[0,1,0,0,0,0,1,0],[0,1,0,0,1,0],[0]] ];
+    var catalogImageTips= [ [["LOFT & BUNK BEDS","BED ACCESSORIES"],["BEDS","BEDHEADS","MATTRESSES","DRESSERS","WARDROBES","RUGS","WALLARTS","DECORS"],["BEDSIDES","TALLBOYS","ARMCHAIRS","BLANKET","LAMPS","COAT RACKS <br>& VALETS"]],
+    						[["COFFEE TABLES","TV UNITS","SIDE TABLES","CONSOLE &<BR>HALL TABLES","ACCENT STOOLS","ACCENT<BR>CHESTS &<BR>CABINETS" ,"HALLWAY<BR>STANDS","STORAGE<BR>UNITS","SHOE<BR>CABINETS"],["DESIGNER REPLICAS","OTTOMANS","BEAN BAGS","RUGS"],["SOFAS & SOFA BEDS","ACCENT CHAIRS","BOOKCASES","DISPLAY<BR>SHELVES","PENDANTS","LAMPS","WALLARTS","DECORS"]],
+    						[["DINING TABLES","SIDEBOARDS & BUFFETS","WINE RACKS","DISPLAY<BR>CABINETS","KITCHEN ISLANDS","RUGS"],["DINING<BR>CHAIRS","BAR STOOLS","HUTCH<BR>CABINETS","DINING<BR>STOOLS","BAR TABLES","PENDANTS","WALLARTS","DECORS"],["DINING BENCHES","KITCHENWARE","TABLEWARE"]],
+    						[[],["DESKS","OFFICE<BR>CHAIRS","FILE<BR>CABINETS","OFFICE STORAGE","BOOKCASES","DESK LAMPS"],[]],
+    						[["KIDS BEDS","KIDS TABLES & DESKS","KIDS CHAIRS","KIDS CHESTS<BR>& CABINETS","KIDS STORAGE"],["LOFT & BUNK BEDS","TOYS & PLAY","KIDS RUGS"],["COTS","CHANGING TABLES","BABY GEARS","BASSINETS<BR>& CRADLES","TODDLAR BED & COT<BR>MATTRESSES"]],
+    						[["OUTDOOR TABLES","OUTDOOR<BR>CHAIRS","OUTDOOR<BR>STOOLS","OUTDOOR BENCHES","OUTDOOR SHELVES","OUTDOOR BEAN BAGS","HAMMOCKS<BR>&SWINGS","OUTDOOR<BR>HEATING"],["OUTDOOR DINING SETS","GAZEBOS &<BR>UMBRELLAS","DAY BEDS &<BR>SUN LOUNGES","OUTDOOR RUGS","OUTDOOR<BR>LIGHTS","OUTDOOR<BR>DECOR"],["OUTDOOR SOFAS &<BR>LOUNGE SETS"]] ];
     if( n >= catalogImageTips[index][col].length) return ""; 
-    return catalogImageTips[index][col][n];
+    var tip = "<strong>"+catalogImageTips[index][col][n]+"</strong>";
+    tip += "<br>125  Styles";
+    return tip;
 }
