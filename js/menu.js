@@ -25,9 +25,11 @@ addshim:function($){
 
 alignmenu:function($, e, megamenu_pos){
 	var megamenu=this.megamenus[megamenu_pos]
+	var firstmenu = this.megamenus[0]
 	var $anchor=megamenu.$anchorobj
 	var $menu=megamenu.$menuobj
-	var menuleft=($(window).width()-(megamenu.offsetx-$(document).scrollLeft())>megamenu.actualwidth)? megamenu.offsetx : megamenu.offsetx-megamenu.actualwidth+megamenu.anchorwidth //get x coord of menu
+	var menuleft= firstmenu.offsetx
+	//($(window).width()-(megamenu.offsetx-$(document).scrollLeft())>megamenu.actualwidth)? megamenu.offsetx : megamenu.offsetx-megamenu.actualwidth+megamenu.anchorwidth //get x coord of menu
 	//var menutop=($(window).height()-(megamenu.offsety-$(document).scrollTop()+megamenu.anchorheight)>megamenu.actualheight)? megamenu.offsety+megamenu.anchorheight : megamenu.offsety-megamenu.actualheight
 	if( menuleft < 0) menuleft = 0
 	var menutop=megamenu.offsety+megamenu.anchorheight  //get y coord of menu
@@ -153,7 +155,7 @@ render:function($){
 
 function getCata(cata)
 {
-	var c = [["BEDROOM","LIVING & HALLWAY","DINING & KITCHEN","KIDS & BABY","HOME OFFICE","DESIGNER REPLICAS","BATHROOM & LAUNDRY"],["D¨¦cor Accents","Wall D¨¦cor","Textiles","Candles & Incense","Giftware","Storage & Display","	Outdoor D¨¦cor"],["Ceiling Lights","Lamps","Wall Lights","Outdoor Lights","Other Lighting","Fans & Heaters"],["Door Mats","Shag Rugs","Modern Rugs","Oriental Rugs","Kids Rugs","Outdoor Rugs","Runner Rugs","Round Rugs","Wool Rugs","Jute Rugs","Cotton Rugs","Hide Rugs"],["Cookware","Bakeware","Tableware","Glassware","Kitchen Knives & Accs","Kitchen Appliances","Storage & Disposal","Kitchen Accessories"],["Outdoor","Pet Supplies"]]
+	var c = [["BEDROOM","LIVING & HALLWAY","DINING & KITCHEN","KIDS & BABY","HOME OFFICE","DESIGNER REPLICAS","BATHROOM & LAUNDRY"],["Decor Accents","Wall Decor","Textiles","Candles & Incense","Giftware","Storage & Display","	Outdoor Decor"],["Ceiling Lights","Lamps","Wall Lights","Outdoor Lights","Other Lighting","Fans & Heaters"],["Door Mats","Shag Rugs","Modern Rugs","Oriental Rugs","Kids Rugs","Outdoor Rugs","Runner Rugs","Round Rugs","Wool Rugs","Jute Rugs","Cotton Rugs","Hide Rugs"],["Cookware","Bakeware","Kitchen Knives & Accs","Tableware","Glassware","Kitchen Accessories","Kitchen Appliances","Storage & Disposal"],["Outdoor","Pet Supplies"]]
 	var href = []
 	return c[cata]
 }
@@ -161,13 +163,13 @@ function getCata(cata)
 function getCataContent(cata, index)
 {
 	var c =[ [["Beds","Loft & Bunk Beds","Bed Heads", "Bedside Tables","Tallboys",					"Dressers","Mattresses","Mattress Bases","Wardrobes","Blanket Boxes","Bed Accessories","Coat Racks & Valets","Bedroom Suites" ], ["Coffee Tables","TV Units","Sofas & Sofa Beds","Accent Chairs","Side Tables","Console & Hall Tables","Bookcases","Display Shelves","Accent Chests & Cabinets","Storage & Wall Units","Hallway Stands","Ottomans","Shoe Cabinets","Accent Stools","Bean Bags","Room Dividers"],["Dining Table Sets","Dining Tables","Dining Chairs","Dining Benches","Dining Stools","Bar Tables","Bar Stools","Sideboards & Buffets","Hutch Cabinets","Display Cabinets","Wine Racks & Bar","Kitchen Islands"],["Loft & Bunk Beds","Kids Beds","Kids Tables & Desks","Kids Chairs","Kids Chests & Cabinets","Kids Storage","Toys & Play","Cots","Changing Tables","Bassinets & Cradles","Baby Gears","Toddlar Bed & Cot Mattresses"],["Desks","Office Chairs","File Cabinets","Office Storage","Bookcases"],["Rep. Tables","Rep. Chairs","Rep. Sofas","Rep. Stools"],["Vanity Cabinets","Bathroom & Laundry Storage Cabinets","Laundry Hampers & Baskets","Bathroom Shelves & Racks","Bathroom Seats"]],
-		[["Sculptures & Figurines","Scale Models","Vases & Vessels","Chimes & Bells","Water Features","Bookends","Flowers & Greenery","D¨¦cor Pieces","Photo Frames","Pots & Planters","D¨¦cor Plates & Bowls","Door Stoppers"],
+		[["Sculptures & Figurines","Scale Models","Vases & Vessels","Chimes & Bells","Water Features","Bookends","Flowers & Greenery","Decor Pieces","Photo Frames","Pots & Planters","Decor Plates & Bowls","Door Stoppers"],
 		["Clocks","Mirrors","Art Prints & Paintings","Wall Sculptures","Wall Shelves & Hooks","Other Wall Arts"],
 		["Cushions","Throws","Beddings","Table Linens","Towels & Floor Mats"],
 		["Candle & Incense Holders","Candles & Incense","Lanterns & Hurricanes","Oil Burners"],
 		["Games","Globes","Stationery","Other Giftware","Bags"],
 		["Jesellery Boxes & Holders","Trays & Baskets","Storage Boxes","Display Easels & Blackboards","Domes & Stands"],
-		["Birdhouses & Bird Baths","Garden Statues & Sculptures","Garden Urns & Fountains","Letter Boxes","Garden Wall Arts","Other Garden D¨¦cor Pieces"]],
+		["Birdhouses & Bird Baths","Garden Statues & Sculptures","Garden Urns & Fountains","Letter Boxes","Garden Wall Arts","Other Garden Decor Pieces"]],
 		[["Pendant Lights","Chandeliers","Batten Fix Lights","Oyster Lights","Downlights","Spotlights","Track Lights"],
 		 ["Table Lamps","Desk Lamps","Floor Lamps","Leadlights & Tiffany Lamps"],
 		 ["Wall Sconces","Recessed Lights","Bunker Lights","Vanity Lights"],
@@ -177,11 +179,11 @@ function getCataContent(cata, index)
 		[[],[],[],[],[],[],[],[],[],[],[],[]],
 		[["Cookware Sets","Frypans","Saucepans","Saute Pans","Stock Pots","Woks","French Ovens & Casseroles","Chef Pans","Grill Pans","Steamer","Other Cookware"],
 		 ["Baking Sets","Baker & Baking Dishes","Cocottes & Ramekins","Mixing Bowls","Cake Pans & Baking Sheets","Roasting Pans","Baking Accessories","Measuring Gadgets"],
-		 ["Dinner Sets","Plates","Bowls","Cups  & Mugs","Teapots","Cutleries","Serving Boards","Salt & Peper Mills & Shakers","Cake Stands","Other Tableware"],["Stemware","Tumblers","Beer Glassware","Decanters","Bottles & Pitchers","Beverage Dispensers"],
 		 ["Knife Block Sets","Kitchen Knives","Knife Blocks & Racks","Knife Sharpeners","Cutting Boards"],
+		 ["Dinner Sets","Plates","Bowls","Cups  & Mugs","Teapots","Cutleries","Serving Boards","Salt & Peper Mills & Shakers","Cake Stands","Other Tableware"],["Stemware","Tumblers","Beer Glassware","Decanters","Bottles & Pitchers","Beverage Dispensers"],
+		["Kitchen Clocks & Timers","Kitchen Scales","Kitchen Shears & Peelers","Graters & Juicers","Paper Roll Holders","Other Kitchen Accessories"],
 		 ["Toasters","Blenders & Mixers","Electric Kettles","Slow Cookers","Deep Fryers","Electric Pressure Cookers","Ice Cream & Yoghurt Makers","Griddles"],
-		 ["Bread Bins & Baskets","Canisters & Containers","Storage Jars","Ultensil Holders","Compost & Disposal Bins"],
-		 ["Kitchen Clocks & Timers","Kitchen Scales","Kitchen Shears & Peelers","Graters & Juicers","Paper Roll Holders","Other Kitchen Accessories"]],
+		 ["Bread Bins & Baskets","Canisters & Containers","Storage Jars","Ultensil Holders","Compost & Disposal Bins"] ],
 		[["Outdoor Dining Sets","Outdoor Tables","Outdoor Chairs","Outdoor Stools","Outdoor Sofas & Lounge Sets","Gazebos & Umbrellas","Day Beds & Sun Lounges","Outdoor Benches","Outdoor Shelves & Storage","Outdoor Bean Bags","Hammocks & Swings","Outdoor Heating"],["For Dogs","For Cats","For Birds","For Fishs","For Other Pets"]]
 		]
 	return c[cata][index];
@@ -197,34 +199,41 @@ function getCataContent(cata, index)
        */
 function genMenu(index)
 {
-
+	var pattern = [[1,1,1,1,3,1],[1,1,2,2,1,1],[1,2,1,1,1,0],[3,3,3,3,0,0],[1,2,1,2,2,0],[1,1,0,0,0,0]]
        var menu = document.getElementById("megamenu"+index)
        var mcon = ""	
 	var cata = getCata(index-1)
-	for (var i = 1; i <=cata.length; i++)
+	var n = 0;
+	for(var col = 1; col <= 5; col++)
 	{
-		if( i <= 5) mcon += '<div id="column'+i+'" class="column">'
-		else mcon += '<div class="clear"></div><p>&nbsp;</p>'
-		var s = '<a href="http://www.livingstyles.com.au/" >'+cata[i-1]+'</a>'
-		mcon += '<dl><dt>'+s+'</dt>'
-		var con = getCataContent(index-1, i-1)
-		for( var j = 0; j < con.length; j ++)
-			mcon += '<dd><a href="http://www.livingstyles.com.au/">'+con[j] + "</a></dd>"
-		mcon += '</dl>'
-		if(i < 5 || i == cata.length ) mcon += '</div>'
+		mcon += '<div id="column'+col+'" class="column">'
+		for (var i = 1; i <=pattern[index-1][col-1]; i++)
+		{
+			if( i > 1) mcon += '<div class="clear"></div><p>&nbsp;</p>'
+			var s = '<a href="http://www.livingstyles.com.au/" >'+cata[n]+'</a>'
+			mcon += '<dl><dt>'+s+'</dt>'
+			var con = getCataContent(index-1, n)
+			for( var j = 0; j < con.length; j ++)
+				mcon += '<dd><a href="http://www.livingstyles.com.au/">'+con[j] + "</a></dd>"
+			mcon += '</dl>'
+			if( i == pattern[index-1][col-1] ) mcon += '</div>'		
+			n++;
+		}
 	}	
-
-	mcon += '<div id="column6" class="column"><dl><dt>FEATURED DEPT.</dt>'
-	path = ['img/cat1.png','img/cat2.png','img/cat3.png']
-	for( var i = 0; i < 3; i++)
+	if( pattern[index-1][5] > 0)
+	{
+		mcon += '<div id="column6" class="column"><dl><dt>FEATURED DEPT.</dt>'
+		path = ['img/cat1.png','img/cat2.png','img/cat3.png']
+		for( var i = 0; i < 3; i++)
 		mcon += '<dd><a  href="http://www.livingstyles.com.au/"><img src="'+path[i]+'"></dd>'
-       mcon += '</dl></div>'
+       	mcon += '</dl></div>'	
+       }
 	menu.innerHTML = mcon
 
 }
 
 jQuery(document).ready(function($)
 {
-	genMenu(1)
+	for( var i = 1; i <= 6; i++) genMenu(i)
 	jkmegamenu.render($)
 })
