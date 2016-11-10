@@ -6,7 +6,7 @@
 @font-face {font-family: 'GrayBold'; src: url('/fonts/Miramar-Bold.ttf');}
 *{margin:0; padding:0}
 body{font-family:Main;font-size:18px;}
-ul,ol{list-style:none outside none;margin:0}
+dd,dl,dt,ul,ol{list-style:none outside none;margin:0;padding:0;}
 img, fieldset{border:none}
 ::-webkit-input-placeholder{color:#b7b7b7}
 :-moz-placeholder{color:#b7b7b7}

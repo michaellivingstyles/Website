@@ -10,45 +10,24 @@
 .navbar-search img{width:16px;height:16px;margin-bottom:4px}
 
 .mnav{width:100%;}
-.mnav a {margin-right:1.5em; font: 18px 'GrayText'; text-decoration:none; color:#000 }
+.mnav span {padding-bottom:5px;margin-right:1.5em; font: 18px 'GrayText'; color:#000 }
+.mnav a {padding-bottom:5px;margin-right:1.5em; font: 18px 'GrayText'; text-decoration:none; color:#000 }
+.mnav a:hover { border-bottom:3px solid #333;} 
 @media only screen and (max-width:1150px){
 	.mnav a {margin-right:0.9em;font-size:17px;}
 }
 /*
-@media only screen and (max-width:1024px){
-	.mnav a {margin-right:1.4em;font-size:7px;}
-}
+@media only screen and (max-width:1024px){.mnav a {margin-right:1.4em;font-size:7px;}}
 */
-#nav .submenu{display:none; position:absolute;top:36px; left:-125px; width:720px; padding:10px 10px 15px 10px; background-color:rgba(255,255,255,.9); background-color:#fff\0/; *background-color:#fff; border:1px solid #d7d7d7; border-top:none; box-shadow:0 1px 3px rgba(0,0,0,.2); z-index:1100;
-border-radius:0 0 5px 5px;
--moz-border-radius:0 0 5px 5px;
--webkit-border-radius:0 0 5px 5px
-}
-#nav .submenu.current{z-index:1120}
-#nav .submenu li{width:220px; margin:0 10px; float:left; padding:0 0 5px 0}
-#nav .submenu li a{display:block; text-decoration:none; color:#acacac; padding:5px 0}
-#nav .submenu li a:hover{color:#acd373}
-#nav .submenu li a:hover .campaign{color:#6eb809}
-#nav .submenu .campaign{font:500 1.25em 'Advent Pro', sans-serif; color:#464646}
-#nav .submenu .campaign-desc{font:.75em Arial, sans-serif}
 
-#nav .submenu dl{width:220px; margin:0 10px; float:left}
-#nav .submenu dl a{display:block; text-decoration:none}
-#nav .submenu dl a:hover{color:#6eb809}
-#nav .submenu dt{font:500 1.25em 'Advent Pro', sans-serif; padding:0 0 5px 0; margin-top:10px}
-#nav .submenu dt a{color:#464646; background:url(../../pc/image/layout/category_icons.png) no-repeat 0 0; padding-left:30px}
-#nav .submenu dt.furniture a{background-position:0 0}
-#nav .submenu dt.lighting a{background-position:0 -30px}
-#nav .submenu dt.rugs a{background-position:0 -60px}
-#nav .submenu dt.homedecor a{background-position:0 -90px}
-#nav .submenu dt.kitchenware a{background-position:0 -119px}
-#nav .submenu dt.pets a{background-position:0 -152px}
-#nav .submenu dd{font:.875em Arial, sans-serif}
-#nav .submenu dd a{margin:5px 0; color:#959595}
-
-#nav-bubble-ongoing{width:63px; height:20px; position:absolute; top:-9px; left:27px; display:none}
-#nav-bubble-ongoing.hover{background-position: 0 -1005px}
-
+.megamenu{position: absolute;display: none;background: white;margin-top: 10px;z-index: 100;}
+.megamenu .column{width:16.66667%;float: left;margin-left:0;margin-top: 20px;text-align:left;}
+.megamenu .column a{color:#000;text-decoration: none;}
+.megamenu .column dl{float:left;}
+.megamenu .column dl dt{font: 16px "GrayText";}
+.megamenu .column dl dd{font: 16px "Main";padding-top: 8px;}
+.megamenu .column dl dd a:hover{text-decoration:underline;}
+/*.megamenu .column dl dd a:hover{background-color:#000; color:#FFF;}*/
 
 /*--------------shop by catalog ------------------------------*/
 .shopbycat {margin-top:30px;display:block;width:100%}
