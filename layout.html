@@ -16,6 +16,7 @@ body{padding-top:20px;padding-bottom:40px}
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/home.js"></script>
+<script src="js/menu.js"></script>
 </head>
 <body >
 <div class="container-narrow">
@@ -36,178 +37,65 @@ body{padding-top:20px;padding-bottom:40px}
       <!-- nav -->
       <div class="navbar-menu">
       <nav class = "mnav">
-          <a  href="http://www.livingstyles.com.au/" >FURNITURE</a>
-          <div class="submenu" style="display: none;">
-            <dl>
-              <dt class="furniture"><a href="http://www.livingstyles.com.au/furniture-733/" title="Furniture">Furniture</a></dt>
-              <dd><a href="http://www.livingstyles.com.au/bar-stools-734/" title="Bar Stools">Bar Stools</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/bedroom-737/" title="Bedroom Furniture">Bedroom</a></dd>
-			  <dd><a href="http://www.livingstyles.com.au/bunk-beds-832/" title="Bunk Beds">Bunk Beds</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/dining-735/" title="Dining Room Furniture">Dining</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/living-room-736/" title="Living Room Furniture">Living Room</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/entertainment-738/" title="Entertainment">Entertainment</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/outdoor-739/" title="Outdoor Furniture">Outdoor</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/home-office-740/" title="Home Office">Home Office</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/kids-furniture-741/" title="Kids Furniture">Kids Furniture</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/nursery-742/" title="Nursery">Nursery</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/replica-furniture-871/" title="Replica Furniture">Replicas</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/bean-bags-1404/" title="Bean Bags">Bean Bags</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/Bathroom-Laundry-7505/" title="Bathroom &amp; Laundry">Bathroom &amp; Laundry</a></dd>
-            </dl>
-            <dl>
-              <dt class="lighting"><a href="http://www.livingstyles.com.au/lighting-744/" title="Lighting">Lighting</a></dt>
-              <dd><a href="http://www.livingstyles.com.au/lamps-745/" title="Lamps">Lamps</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/ceiling-lights-746/" title="Ceiling Lights">Ceiling Lights</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/wall-lights-747/" title="Wall Lights">Wall Lights</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/outdoor-lighting-748/" title="Outdoor Lighting">Outdoor Lighting</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/downlightings-749/" title="Downlightings">Downlightings</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/lED-lighting-750/" title="LED Lighting">LED Lighting</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/light-bulbs-751/" title="Light Bulbs">Light Bulbs</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/fans-and-heaters-752/" title="Fans and Heaters">Fans and Heaters</a></dd>
-              <dt class="homedecor"><a href="http://www.livingstyles.com.au/home-decor-743/" title="Home Decor">Home Décor</a></dt>
-			  <dt class="pets"><a href="http://www.livingstyles.com.au/pets-1585/" title="Pets">Pets</a></dt>
-            </dl>
-            <dl>
-              <dt class="rugs"><a href="http://www.livingstyles.com.au/rugs-753/" title="Rugs">Rugs</a></dt>
-              <dd><a href="http://www.livingstyles.com.au/contemporary-rugs-758/" title="Contemporary Rugs">Contemporary Rugs</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/shag-rugs-754/" title="Shag Rugs">Shag Rugs</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/oriental-rugs-755/" title="Oriental Rugs">Oriental Rugs</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/kids-rugs-756/" title="Kids Rugs">Kids Rugs</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/outdoor-rugs-757/" title="Outdoor Rugs">Outdoor Rugs</a></dd>
-              <dt class="kitchenware"><a href="http://www.livingstyles.com.au/kitchenware-759/" title="Kitchenware">Kitchenware</a></dt>
-			  <dd><a href="http://www.livingstyles.com.au/Storage-and-Disposal-5685/" title="Storage and Disposal">Storage and Disposal</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/cookware-760/" title="Cookware">Cookware</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/dinnerware-761/" title="Dinnerware">Dinnerware</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/glassware-762/" title="Glassware">Glassware</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/Cutlery-and-Knives-763/" title="Cutlery and Knives">Cutlery and Knives</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/Kitchen-Knives-6227/" title="Kitchen Knives">Kitchen Knives</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/Kitchen-Appliances-7111//" title="Kitchen Appliances">Kitchen Appliances</a></dd>
-              <dd><a href="http://www.livingstyles.com.au/Kitchen-Accessories-7282/" title="Kitchen Accessories">Kitchen Accessories</a></dd>
-            </dl>
-          </div>
+          <a  href="http://www.livingstyles.com.auaa/" id="megaanchor1" style="border-bottom:3px solid #FFF;">FURNITURE</a>
           <a href="http://www.livingstyles.com.au/memberspecials/">HOMEWARE</a>
-          <div class="submenu" style="display:none">
-            <ul>
-              <li>
-                <a href="http://www.livingstyles.com.au/memberspecials/">
-                  <p class="campaign">View All</p>
-                  <p class="campaign-desc">View all member specials</p>
-                </a>
-              </li>
-              
-              
-                      <li>
-                        <a href="http://www.livingstyles.com.au/high-seating-9056/" title="High Seating">
-                          <p class="campaign">High Seating</p>
-                          <p class="campaign-desc">Bravo Commercial Grade Bar Stools</p>
-                        </a>
-                      </li>
-              
-                      <li>
-                        <a href="http://www.livingstyles.com.au/day-pillows-8665/" title="Day Pillows">
-                          <p class="campaign">Day Pillows</p>
-                          <p class="campaign-desc">Classic Textured Scatter Cushions</p>
-                        </a>
-                      </li>
-              
-                      <li>
-                        <a href="http://www.livingstyles.com.au/the-little-detailing-8447/" title="The Little Detailing">
-                          <p class="campaign">The Little Detailing</p>
-                          <p class="campaign-desc">Pristine White Bedroom Collections</p>
-                        </a>
-                      </li>
-              
-                      <li>
-                        <a href="http://www.livingstyles.com.au/imagination-forest-9023/" title="Imagination Forest">
-                          <p class="campaign">Imagination Forest</p>
-                          <p class="campaign-desc">Beautifully Crafted Kids Furniture</p>
-                        </a>
-                      </li>
-              
-                      <li>
-                        <a href="http://www.livingstyles.com.au/designer-dining-8890/" title="Designer Dining">
-                          <p class="campaign">Designer Dining</p>
-                          <p class="campaign-desc">Amazing Accent Chairs </p>
-                        </a>
-                      </li>
-              
-                      <li>
-                        <a href="http://www.livingstyles.com.au/clever-canvases-8870/" title="Clever Canvases">
-                          <p class="campaign">Clever Canvases</p>
-                          <p class="campaign-desc">Wall Art That Wows</p>
-                        </a>
-                      </li>
-              
-                      <li>
-                        <a href="http://www.livingstyles.com.au/timber-home-truths-649/" title="Timber Home Truths">
-                          <p class="campaign">Timber Home Truths</p>
-                          <p class="campaign-desc">Smart Sustainable Wooden Furniture</p>
-                        </a>
-                      </li>
-              
-                      <li>
-                        <a href="http://www.livingstyles.com.au/commercial-chic-8974/" title="Commercial Chic">
-                          <p class="campaign">Commercial Chic</p>
-                          <p class="campaign-desc">Contemporary Metal Seating</p>
-                        </a>
-                      </li>
-              
-                      <li>
-                        <a href="http://www.livingstyles.com.au/christmas-comforts-8886/" title="Christmas Comforts">
-                          <p class="campaign">Christmas Comforts</p>
-                          <p class="campaign-desc">Smart Seasonal Cushion Covers</p>
-                        </a>
-                      </li>
-              
-                      <li>
-                        <a href="http://www.livingstyles.com.au/white-french-manor-7910/" title="White French Manor">
-                          <p class="campaign">White French Manor</p>
-                          <p class="campaign-desc">French Provincial Furniture Collections</p>
-                        </a>
-                      </li>
-              
-                      <li>
-                        <a href="http://www.livingstyles.com.au/be-bold-8951/" title="Be Bold">
-                          <p class="campaign">Be Bold</p>
-                          <p class="campaign-desc">Vivid Furniture &amp; Home Accessories</p>
-                        </a>
-                      </li>
-              
-                      <li>
-                        <a href="http://www.livingstyles.com.au/coastal-fun-8879/" title="Coastal Fun">
-                          <p class="campaign">Coastal Fun</p>
-                          <p class="campaign-desc">Fun Sea Inspired Outdoor Rugs</p>
-                        </a>
-                      </li>
-              
-                      <li>
-                        <a href="http://www.livingstyles.com.au/xmas-in-french-manor-7524/" title="Xmas in French Manor">
-                          <p class="campaign">Xmas in French Manor</p>
-                          <p class="campaign-desc">Pre-Christmas Furniture Sale</p>
-                        </a>
-                      </li>
-              
-
-              
-            </ul>
-          </div>
         <a href="http://www.livingstyles.com.au/">LIGHTING</a></li>
         <a href="http://www.livingstyles.com.au/">RUGS</a></li>
-        <a href="http://www.livingstyles.com.au/"><span>KITCHENWARE</a></span></li>
-        <a href="http://www.livingstyles.com.au/" target="_blank"><span>MORE</a></li>
-	<a><span>|</span></a></li>
-	<a href="http://www.livingstyles.com.au/" target="_blank"><span>MEMBER SPECIALS</span></a></li>
-	<a href="http://www.livingstyles.com.au/" target="_blank"><span>SALE</span></a></li>
-	<a href="http://www.livingstyles.com.au/" target="_blank"style="margin-right:0;"><span >BRANDS</span></a>
+        <a href="http://www.livingstyles.com.au/">KITCHENWARE</a>
+        <a href="http://www.livingstyles.com.au/" target="_blank">MORE</a>
+	<span>|</span>
+	<a href="http://www.livingstyles.com.au/" target="_blank">MEMBER SPECIALS</a>
+	<a href="http://www.livingstyles.com.au/" target="_blank">SALE</a>
+	<a href="http://www.livingstyles.com.au/" target="_blank"style="margin-right:0;">BRANDS</a>
       </div>
       <!-- nav close -->
       <div class="navbar-search">
 	<a href="http://www.livingstyles.com.au/" ><img  src="img/ico_search.svg"></a>
 	</div>
+	
+	<div id="megamenu1" class="megamenu" style="width:1170px;">
+		<div id="column1" class="column">
+            <dl>
+              <dt><a href="http://www.livingstyles.com.au/bedroom-737/" >BEDROOM</a></dt>
+              <dd id="columndd1"></dd>
+            </dl>
+          </div>
+          	<div id="column2" class="column">
+            <dl>
+              <dt><a href="http://www.livingstyles.com.au/bedroom-737/" >LIVING & HALLWAY</a></dt>
+              <dd id="columndd2"></dd>
+            </dl>
+          </div>
+          	<div id="column3" class="column">
+            <dl>
+              <dt><a href="http://www.livingstyles.com.au/bedroom-737/" title="Bedroom Furniture">BEDROOM</a></dt>
+              <dd><a href="http://www.livingstyles.com.au/bar-stools-734/" title="Beds">Beds</a></dd>
+            </dl>
+          </div>
+          	<div id="column4" class="column">
+            <dl>
+              <dt class="furniture"><a href="http://www.livingstyles.com.au/bedroom-737/" title="Bedroom Furniture">BEDROOM</a></dt>
+              <dd><a href="http://www.livingstyles.com.au/bar-stools-734/" title="Beds">Beds</a></dd>
+            </dl>
+          </div>
+          	<div id="column5" class="column">
+            <dl>
+              <dt class="furniture"><a href="http://www.livingstyles.com.au/bedroom-737/" title="Bedroom Furniture">BEDROOM</a></dt>
+              <dd><a href="http://www.livingstyles.com.au/bar-stools-734/" title="Beds">Beds</a></dd>
+            </dl>
+          </div>
+          	<div id="column6" class="column" style="width:170px">
+            <dl>
+              <dt class="furniture"><a href="http://www.livingstyles.com.au/bedroom-737/" title="Bedroom Furniture">BEDROOM</a></dt>
+              <dd><a href="http://www.livingstyles.com.au/bar-stools-734/" title="Beds">Beds</a></dd>
+            </dl>
+          </div>
+          </div>
+          <script>jkmegamenu.definemenu("megaanchor1", "megamenu1", "mouseover");</script>
 </div>
 <div class="clear"></div>
 <!-- billboard -->
-    <div style="max-width: 100%;"><img src="img/hbb_20150109_1.jpg" style="width:100%;"></div>
+    <div style="max-width: 100%;"><img src="img/banner1.jpg" style="width:100%;"></div>
     <p id="debug">DEBUG</p>
 <!--sell by catalogs-->
 <div class="row-fluid shopbycat">
