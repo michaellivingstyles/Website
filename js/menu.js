@@ -6,6 +6,123 @@
 
 jQuery.noConflict();
 
+
+(function($) {
+	$.fn.autocomplete = function(params) {
+		
+		//Selections
+		var currentSelection = -1;
+		var currentProposals = [];
+		
+		//Default parameters
+		params = $.extend({
+			hints: [],
+			onSubmit: function(text){},
+			onBlur: function(){}
+		}, params);
+
+		//Build messagess
+		this.each(function() {
+			//Container
+			var searchContainer = $(".autocomplete-container");
+			var input = $("#stext");
+			var anchor = $(".searchbarmiddle");
+			//Proposals
+			var proposals = $('<div></div>')
+				.addClass('proposal-box')
+				.css('width', input.outerWidth() )
+			var proposalList = $('<ul></ul>')
+				.addClass('proposal-list');
+			proposals.append(proposalList);
+			input.keydown(function(e) {
+				//searchContainer.css("top", anchor.top+input.outerHeight());
+				//searchContainer.css("left", anchor.offset().left);
+				switch(e.which) {
+					case 38: // Up arrow
+					e.preventDefault();
+					$('ul.proposal-list li').removeClass('selected');
+					if((currentSelection - 1) >= 0){
+						currentSelection--;
+						$( "ul.proposal-list li:eq(" + currentSelection + ")" )
+							.addClass('selected');
+					} else {
+						currentSelection = -1;
+					}
+					break;
+					case 40: // Down arrow
+					e.preventDefault();
+					if((currentSelection + 1) < currentProposals.length){
+						$('ul.proposal-list li').removeClass('selected');
+						currentSelection++;
+						$( "ul.proposal-list li:eq(" + currentSelection + ")" )
+							.addClass('selected');
+					}
+					break;
+					case 13: // Enter
+						if(currentSelection > -1){
+							var text = $( "ul.proposal-list li:eq(" + currentSelection + ")" ).html();
+							input.val(text);
+						}
+						currentSelection = -1;
+						proposalList.empty();
+						params.onSubmit(input.val());
+						break;
+					case 27: // Esc button
+						currentSelection = -1;
+						proposalList.empty();
+						input.val('');
+						break;
+				}
+			});
+				
+			input.bind("change paste keyup", function(e){
+				if(e.which != 13 && e.which != 27 
+						&& e.which != 38 && e.which != 40){				
+					currentProposals = [];
+					currentSelection = -1;
+					proposalList.empty();
+					if(input.val() != '' && input.val().length >= 3){
+						searchContainer.show();
+						var word = "^" + input.val() + ".*";
+						proposalList.empty();
+						for(var test in params.hints){
+							if(params.hints[test].match(word)){
+								currentProposals.push(params.hints[test]);	
+								var element = $('<li></li>')
+									.html(params.hints[test])
+									.addClass('proposal')
+									.click(function(){
+										input.val($(this).html());
+										proposalList.empty();
+										params.onSubmit(input.val());
+									})
+									.mouseenter(function() {
+										$(this).addClass('selected');
+									})
+									.mouseleave(function() {
+										$(this).removeClass('selected');
+									});
+								proposalList.append(element);
+							}
+						}
+					}
+					else searchContainer.hide();
+				}
+			});
+			
+			input.blur(function(e){
+				currentSelection = -1;
+				//proposalList.empty();
+				params.onBlur();
+			});
+			searchContainer.append(proposals);		
+		});
+
+		return this;
+	};
+
+})(jQuery);
+
 var jkmegamenu={
 
 maxwidth: 1170,
@@ -232,8 +349,30 @@ function genMenu(index)
 
 }
 
+var proposals = ['html5tricks', 'jquery', 'css3', 'chief', 'dog', 'drink', 'elephant', 'fruit', 'grave','hotel', 'illness', 'London', 'motorbike']
+
 jQuery(document).ready(function($)
 {
 	for( var i = 1; i <= 6; i++) genMenu(i)
 	jkmegamenu.render($)
+	$('#search-form').autocomplete({
+		hints: proposals,
+		onSubmit: function(text){
+			$('#message').html('Selected: <b>' + text + '</b>');			
+		}
+	});
+	$("#search").click(function(){
+	       $(".navbar-menu").fadeOut(1000)
+	       $(".navbar-search").fadeOut(1000,function(){
+	       	$(".searchbar").fadeIn(1000,function(){
+	       		$("#stext").focus()
+	       	})
+	        })
+    	})
+    	$("#close").click(function(){ 		
+      	 $(".searchbar").fadeOut(1000, function(){
+      	 	$(".navbar-menu").fadeIn(1000)
+	       	$(".navbar-search").fadeIn(1000)
+	        })
+    	})
 })
