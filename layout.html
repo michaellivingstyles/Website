@@ -35,67 +35,65 @@ body{padding-top:20px;padding-bottom:40px}
 
 <div class="row-fluid navbar">
       <!-- nav -->
-      <div class="navbar-menu">
+      <div id="navbar-menu" class="navbar-menu">
       <nav class = "mnav">
           <a  href="http://www.livingstyles.com.auaa/" id="megaanchor1" style="border-bottom:3px solid #FFF;">FURNITURE</a>
-          <a href="http://www.livingstyles.com.au/memberspecials/">HOMEWARE</a>
-        <a href="http://www.livingstyles.com.au/">LIGHTING</a></li>
-        <a href="http://www.livingstyles.com.au/">RUGS</a></li>
-        <a href="http://www.livingstyles.com.au/">KITCHENWARE</a>
-        <a href="http://www.livingstyles.com.au/" target="_blank">MORE</a>
+          <a href="http://www.livingstyles.com.au/memberspecials/" id="megaanchor2">HOMEWARE</a>
+        <a href="http://www.livingstyles.com.au/" id="megaanchor3">LIGHTING</a></li>
+        <a href="http://www.livingstyles.com.au/" id="megaanchor4">RUGS</a></li>
+        <a href="http://www.livingstyles.com.au/" id="megaanchor5">KITCHENWARE</a>
+        <a href="http://www.livingstyles.com.au/" id="megaanchor6">MORE</a>
 	<span>|</span>
 	<a href="http://www.livingstyles.com.au/" target="_blank">MEMBER SPECIALS</a>
 	<a href="http://www.livingstyles.com.au/" target="_blank">SALE</a>
 	<a href="http://www.livingstyles.com.au/" target="_blank"style="margin-right:0;">BRANDS</a>
+     </nav>     
       </div>
       <!-- nav close -->
-      <div class="navbar-search">
-	<a href="http://www.livingstyles.com.au/" ><img  src="img/ico_search.svg"></a>
+      <div id="navbar-search" class="navbar-search">
+	<a href="#" onclick="opensearchbar();" ><img id="search" src="img/ico_search.svg"></a>
 	</div>
-	
-	<div id="megamenu1" class="megamenu" style="width:1170px;">
-		<div id="column1" class="column">
-            <dl>
-              <dt><a href="http://www.livingstyles.com.au/bedroom-737/" >BEDROOM</a></dt>
-              <dd id="columndd1"></dd>
-            </dl>
-          </div>
-          	<div id="column2" class="column">
-            <dl>
-              <dt><a href="http://www.livingstyles.com.au/bedroom-737/" >LIVING & HALLWAY</a></dt>
-              <dd id="columndd2"></dd>
-            </dl>
-          </div>
-          	<div id="column3" class="column">
-            <dl>
-              <dt><a href="http://www.livingstyles.com.au/bedroom-737/" title="Bedroom Furniture">BEDROOM</a></dt>
-              <dd><a href="http://www.livingstyles.com.au/bar-stools-734/" title="Beds">Beds</a></dd>
-            </dl>
-          </div>
-          	<div id="column4" class="column">
-            <dl>
-              <dt class="furniture"><a href="http://www.livingstyles.com.au/bedroom-737/" title="Bedroom Furniture">BEDROOM</a></dt>
-              <dd><a href="http://www.livingstyles.com.au/bar-stools-734/" title="Beds">Beds</a></dd>
-            </dl>
-          </div>
-          	<div id="column5" class="column">
-            <dl>
-              <dt class="furniture"><a href="http://www.livingstyles.com.au/bedroom-737/" title="Bedroom Furniture">BEDROOM</a></dt>
-              <dd><a href="http://www.livingstyles.com.au/bar-stools-734/" title="Beds">Beds</a></dd>
-            </dl>
-          </div>
-          	<div id="column6" class="column" style="width:170px">
-            <dl>
-              <dt class="furniture"><a href="http://www.livingstyles.com.au/bedroom-737/" title="Bedroom Furniture">BEDROOM</a></dt>
-              <dd><a href="http://www.livingstyles.com.au/bar-stools-734/" title="Beds">Beds</a></dd>
-            </dl>
-          </div>
-          </div>
-          <script>jkmegamenu.definemenu("megaanchor1", "megamenu1", "mouseover");</script>
+	<div class="searchbar" class="searchbar">
+	<div class="searchbarleft">&nbsp;</div>
+	<div class="searchbarmiddle">
+	<input id="stext" type="text" placeholder=" Search products by typing keywords or SKUs here." />
+	</div>
+	<div class="searchbarright" >
+	<div id="search-form">
+	<a href="#" onclick="closesearchbar();" ><img  id="close" class="icoclose" src="img/ico_close.svg" ></a>
+	</div>
+	</div>
+	</div>
+
+	<!-- submenus -->
+	<div id="megamenu1" class="megamenu" ></div>
+       <script>jkmegamenu.definemenu("megaanchor1", "megamenu1", "mouseover");</script>
+       <div id="megamenu2" class="megamenu" ></div>
+       <script>jkmegamenu.definemenu("megaanchor2", "megamenu2", "mouseover");</script>
+       <div id="megamenu3" class="megamenu" ></div>
+       <script>jkmegamenu.definemenu("megaanchor3", "megamenu3", "mouseover");</script>
+       <div id="megamenu4" class="megamenu" ></div>
+       <script>jkmegamenu.definemenu("megaanchor4", "megamenu4", "mouseover");</script>
+       <div id="megamenu5" class="megamenu" ></div>
+       <script>jkmegamenu.definemenu("megaanchor5", "megamenu5", "mouseover");</script>
+       <div id="megamenu6" class="megamenu" ></div>
+       <script>jkmegamenu.definemenu("megaanchor6", "megamenu6", "mouseover");</script>
 </div>
 <div class="clear"></div>
 <!-- billboard -->
-    <div style="max-width: 100%;"><img src="img/banner1.jpg" style="width:100%;"></div>
+    <div class="banner">
+    <div>
+    <img src="img/banner1.jpg" style="width:100%;">
+    </div>
+    <div class="autocomplete-container">
+    <div class="containerleft">
+    KEYWORDS
+    </div>
+    <div class="containerright">
+    SUGGESTED PRODUCTS
+    </div>
+    </div>
+    </div>
     <p id="debug">DEBUG</p>
 <!--sell by catalogs-->
 <div class="row-fluid shopbycat">
