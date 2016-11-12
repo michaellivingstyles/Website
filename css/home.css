@@ -4,10 +4,22 @@
     display:table-cell; }
 
 /* ---------- Navbar ----------------- */
-.navbar{ margin:30px 0 20px 0;}
-.navbar-menu{ width:98.29059%;margin:0;padding:0;float:left;}
+.navbar{ margin:30px 0 20px 0;position:relative;display:block;}
+.navbar-menu{ z-index:100;width:98.29059%;margin:0;padding:0;float:left;}
 .navbar-search {width:1.70941%;margin:0;padding:0;float:right}
 .navbar-search img{width:16px;height:16px;margin-bottom:4px}
+
+.searchbar{width:100%;left:0;top:0;z-index:50;display:none;}
+.searchbarleft {width:25%;float:left;}
+.searchbarmiddle {width:45%;float:left;}
+.searchbarmiddle input {width:90%;height:23px;margin:0;padding:0 0 0 32px;font: 16px 'Main';color:#b7b7b7;background: url("/img/ico_search.svg") no-repeat left;background-size: 16px 16px; 
+border: 0px solid #FFF;}
+.icoclose {width:14px;opacity:0.8;}
+.searchbarright {width:30%;float:left;}
+.banner {max-width: 100%; position:relative; }
+.autocomplete-container {position: absolute;background-color:#FFF;top:0px;left:25%;width:47%;margin: 0 auto;display:none; }
+.containerleft {width:50%;float:left}
+.containerright{width:50%;float:left}
 
 .mnav{width:100%;}
 .mnav span {padding-bottom:5px;margin-right:1.5em; font: 18px 'GrayText'; color:#000 }
@@ -20,7 +32,7 @@
 @media only screen and (max-width:1024px){.mnav a {margin-right:1.4em;font-size:7px;}}
 */
 
-.megamenu{position: absolute;display: none;background: white;margin-top: 10px;z-index: 100;}
+.megamenu{position: absolute;display: none;background: white;margin-top: 10px;z-index: 100;width:1170px;}
 .megamenu .column{width:16.66667%;float: left;margin-left:0;margin-top: 20px;text-align:left;}
 .megamenu .column a{color:#000;text-decoration: none;}
 .megamenu .column dl{float:left;}
