@@ -9,15 +9,18 @@
 .navbar-search {width:1.70941%;margin:0;padding:0;float:right}
 .navbar-search img{width:16px;height:16px;margin-bottom:4px}
 
-.searchbar{width:100%;left:0;top:0;z-index:50;display:none;}
-.searchbarleft {width:25%;float:left;}
-.searchbarmiddle {width:45%;float:left;}
-.searchbarmiddle input {width:90%;height:23px;margin:0;padding:0 0 0 32px;font: 16px 'Main';color:#b7b7b7;background: url("/img/ico_search.svg") no-repeat left;background-size: 16px 16px; 
-border: 0px solid #FFF;}
+.searchbar{position:relative;width:100%;left:0;top:0;height:23px;display:none;}
+.searchbarleft { position:absolute;width:45%;}
+.searchbarleft input {width:90%;height:23px;margin:0;padding:0 0 0 32px;font: 16px 'Main';color:#b7b7b7;background: url("/img/ico_search.svg") no-repeat left;background-size: 16px 16px; 
+border: 0px solid #FFF; box-shadow:none; transition: width 0s; }
+.searchbarleft input:focus{box-shadow:none; }
 .icoclose {width:14px;opacity:0.8;}
-.searchbarright {width:30%;float:left;}
+.searchbarright {position:absolute;left:73%;}
+
 .banner {max-width: 100%; position:relative; }
-.autocomplete-container {position: absolute;background-color:#FFF;top:0px;left:25%;width:47%;margin: 0 auto;display:none; }
+.autocomplete-container {position: absolute;background-color:#FFF;top:0px;left:25%;width:50%;margin: 0 auto;display:none; }
+.autocomplete-container dt{ font: 12px "Main"; color:#b7b7b7;}
+.autocomplete-container dd{ font: 16px "Main"; color:#000;}
 .containerleft {width:50%;float:left}
 .containerright{width:50%;float:left}
 
