@@ -344,6 +344,9 @@ function genMenu(index)
 
 var proposals = ['html5tricks', 'html55','html4','jquery', 'css3', 'chief', 'dog', 'drink', 'elephant', 'fruit', 'grave','hotel', 'illness', 'London', 'motorbike']
 
+var fadeTimer1 = null;
+var fadeTimer2 = null;
+      
 jQuery(document).ready(function($)
 {
 	for( var i = 1; i <= 6; i++) genMenu(i)
@@ -381,14 +384,31 @@ jQuery(document).ready(function($)
             speed: 1000,
             auto: true,
             pause:8000,
-            autoHover: true,
+            autoHover: true
+            //,prevSelector: '.leftcontrol'
         });
       }
+
+      $('.bx-wrapper .bx-prev').hide();
+      $('.bx-wrapper .bx-next').hide();
       $('.bx-wrapper').hoverIntent(function(){
-        $('.bx-wrapper .bx-prev').animate({left:0},200);
-        $('.bx-wrapper .bx-next').animate({right:0},200);
+      	  clearTimeout(fadeTimer1);
+      	  clearTimeout(fadeTimer2);
+	        $('.bx-wrapper .bx-prev').fadeIn();
+	        $('.bx-wrapper .bx-next').fadeIn();
       },function(){
-        $('.bx-wrapper .bx-prev').animate({left:-50},200);
-        $('.bx-wrapper .bx-next').animate({right:-50},200);
+      	fadeTimer1=setTimeout(function(){
+		        $('.bx-wrapper .bx-prev').fadeOut();
+		        $('.bx-wrapper .bx-next').fadeOut();
+		}, 1500);
+      });
+      $('.bx-wrapper .bx-prev').hoverIntent(function(){
+		clearTimeout(fadeTimer1);
+		clearTimeout(fadeTimer2);
+      },function(){
+      	fadeTimer2=setTimeout(function(){
+		        $('.bx-wrapper .bx-prev').fadeOut();
+		        $('.bx-wrapper .bx-next').fadeOut();
+		}, 1500);
       });
 })
