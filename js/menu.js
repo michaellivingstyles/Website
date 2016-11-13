@@ -117,7 +117,7 @@ var jkmegamenu={
 maxwidth: 1170,
 effectduration: 300, //duration of animation, in milliseconds
 delaytimer: 200, //delay after mouseout before menu should be hidden, in milliseconds
-
+showtimer: 400,
 //No need to edit beyond here
 megamenulabels: [],
 megamenus: [], //array to contain each block menu instances
@@ -179,7 +179,7 @@ hidemenu:function(e, megamenu_pos){
 	$menuinner.css('visibility', 'hidden')
 	this.$shimobj.css({display:"none", left:0, top:0})
 	$menu.hide(this.effectduration)
-	megamenu.$anchorobj.css('border-bottom', '3px solid #FFF')
+	megamenu.$anchorobj.css('border-bottom', '0px solid #FFF')
 },
 
 definemenu:function(anchorid, menuid, revealtype){
@@ -190,7 +190,7 @@ render:function($){
 	for (var i=0, labels=this.megamenulabels[i]; i<this.megamenulabels.length; i++, labels=this.megamenulabels[i]){
 		if ($('#'+labels[0]).length!=1 || $('#'+labels[1]).length!=1) //if one of the two elements are NOT defined, exist
 			return
-		this.megamenus.push({$anchorobj:$("#"+labels[0]), $menuobj:$("#"+labels[1]), $menuinner:$("#"+labels[1]).children('ul:first-child'), revealtype:labels[2], hidetimer:null})
+		this.megamenus.push({$anchorobj:$("#"+labels[0]), $menuobj:$("#"+labels[1]), $menuinner:$("#"+labels[1]).children('ul:first-child'), revealtype:labels[2], hidetimer:null, showtimer:null})
 		var megamenu=this.megamenus[i]	
 		megamenu.$anchorobj.add(megamenu.$menuobj).attr("_megamenupos", i+"pos") //remember index of this drop down menu
 		megamenu.actualwidth=megamenu.$menuobj.outerWidth()
@@ -205,8 +205,11 @@ render:function($){
 		megamenu.$anchorobj.bind(megamenu.revealtype=="click"? "click" : "mouseenter", function(e){
 			this.setAttribute("style","border-bottom:3px solid #000")
 			var menuinfo=jkmegamenu.megamenus[parseInt(this.getAttribute("_megamenupos"))]
+			menuinfo.showtimer=setTimeout(function(){ //add delay before hiding menu
+					jkmegamenu.showmenu(e, parseInt(menuinfo.$menuobj.get(0).getAttribute("_megamenupos")))
+				}, jkmegamenu.showtimer)
 			clearTimeout(menuinfo.hidetimer) //cancel hide menu timer
-			return jkmegamenu.showmenu(e, parseInt(this.getAttribute("_megamenupos")))
+			//return jkmegamenu.showmenu(e, parseInt(this.getAttribute("_megamenupos")))
 		})
 		megamenu.$anchorobj.bind("mouseleave", function(e){
 			//this.setAttribute("style","border-bottom:3px solid #FFF")
@@ -216,6 +219,7 @@ render:function($){
 					jkmegamenu.hidemenu(e, parseInt(menuinfo.$menuobj.get(0).getAttribute("_megamenupos")))
 				}, jkmegamenu.delaytimer)
 			}
+			clearTimeout(menuinfo.showtimer) 
 		})
 		megamenu.$menuobj.bind("mouseenter", function(e){
 			var menuinfo=jkmegamenu.megamenus[parseInt(this.getAttribute("_megamenupos"))]
@@ -369,4 +373,22 @@ jQuery(document).ready(function($)
 	       	$(".navbar-search").fadeIn(500)
 	        })
     	})
+    	
+    	var numberOfImages = $('.bxslider li').length; 
+      if( numberOfImages > 1 ) {
+        $('.bxslider').bxSlider({
+            mode: 'fade',
+            speed: 1000,
+            auto: true,
+            pause:8000,
+            autoHover: true,
+        });
+      }
+      $('.bx-wrapper').hoverIntent(function(){
+        $('.bx-wrapper .bx-prev').animate({left:0},200);
+        $('.bx-wrapper .bx-next').animate({right:0},200);
+      },function(){
+        $('.bx-wrapper .bx-prev').animate({left:-50},200);
+        $('.bx-wrapper .bx-next').animate({right:-50},200);
+      });
 })
