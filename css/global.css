@@ -5,7 +5,8 @@
 @font-face {font-family: 'GrayText'; src: url('/fonts/Miramar.ttf');}
 @font-face {font-family: 'GrayBold'; src: url('/fonts/Miramar-Bold.ttf');}
 *{margin:0; padding:0}
-body{font-family:Main;font-size:18px;}
+body{padding-top:20px;padding-bottom:40px;font-family:Main;font-size:18px;}
+.container-narrow{margin:0 auto;max-width:1170px}
 dd,dl,dt,ul,ol{list-style:none outside none;margin:0;padding:0;}
 img, fieldset{border:none}
 ::-webkit-input-placeholder{color:#b7b7b7}
