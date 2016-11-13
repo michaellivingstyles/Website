@@ -17,6 +17,8 @@ body{padding-top:20px;padding-bottom:40px}
 <script src="js/bootstrap.min.js"></script>
 <script src="js/home.js"></script>
 <script src="js/menu.js"></script>
+<script src="js/bxslider.js"></script>
+<script src="js/hoverIntent.js"></script>
 </head>
 <body >
 <div class="container-narrow">
@@ -78,11 +80,19 @@ body{padding-top:20px;padding-bottom:40px}
        <script>jkmegamenu.definemenu("megaanchor6", "megamenu6", "mouseover");</script>
 </div>
 <div class="clear"></div>
-<!-- billboard -->
-    <div class="banner">
-    <div>
-    <img src="img/banner1.jpg" style="width:100%;">
+<!-- banner -->
+    <div class="row-fluid banner">
+        <div class="bx-wrapper" style="width: 100%;">
+        
+        <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 540px;">
+        <ul id="upstairs-billboard" class="bxslider" style="width: auto; position: relative;">
+            <li style="float: none; list-style: outside none none; position: absolute; width: 940px; z-index: 50; display: block;"><a href="http://www.livingstyles.com.au/" target="_blank"><img src="img/banner1.jpg" alt="Home Billboard"></a></li>
+            <li style="float: none; list-style: outside none none; position: absolute; width: 940px; z-index: 0; display: none;"><a href="http://www.livingstyles.com.au/lighting-744/" target="_blank"><img src="img/banner2.jpg" alt="Save Up to 50 Over 3100 Lighting Solutions"></a></li>
+    </ul>
     </div>
+    
+    </div>
+    <!-- banner images -->
     <div class="autocomplete-container">
     <div class="containerleft">
     <dl>
@@ -102,7 +112,7 @@ body{padding-top:20px;padding-bottom:40px}
     </div>
     </div>
     </div>
-    <p id="debug">DEBUG</p>
+    <p id="debug" style="display:none">DEBUG</p>
 <!--sell by catalogs-->
 <div class="row-fluid shopbycat">
 <!-- text menu -->
