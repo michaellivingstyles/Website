@@ -54,14 +54,12 @@ body{padding-top:20px;padding-bottom:40px}
 	<a href="#" onclick="opensearchbar();" ><img id="search" src="img/ico_search.svg"></a>
 	</div>
 	<div class="searchbar" class="searchbar">
-	<div class="searchbarleft">&nbsp;</div>
-	<div class="searchbarmiddle">
-	<input id="stext" type="text" placeholder=" Search products by typing keywords or SKUs here." />
+	<!-- div id="sinput" style="position:absolute;left:20px;" -->
+	<div class="searchbarleft">
+	<input id="stext" class="searchinput" type="text" placeholder=" Search products by typing keywords or SKUs here." />
 	</div>
-	<div class="searchbarright" >
-	<div id="search-form">
-	<a href="#" onclick="closesearchbar();" ><img  id="close" class="icoclose" src="img/ico_close.svg" ></a>
-	</div>
+	<div class="searchbarright">
+	<a href="#" onclick="closesearchbar();"><img  id="close" class="icoclose" src="img/ico_close.svg" ></a>
 	</div>
 	</div>
 
@@ -87,10 +85,20 @@ body{padding-top:20px;padding-bottom:40px}
     </div>
     <div class="autocomplete-container">
     <div class="containerleft">
-    KEYWORDS
+    <dl>
+    <dt>KEYWORDS</dt>
+    <div id="skey">&nbsp;</div>
+    </dl>
+    <dl>
+    <dt>CATEGORIES</dt>
+    <dd id="scat">&nbsp;</dd>
+    </dl>
     </div>
     <div class="containerright">
-    SUGGESTED PRODUCTS
+    <dl>
+    <dt>SUGGESTED PRODUCTS</dt>
+    <dd id="ssp"></dd>
+    </dl>
     </div>
     </div>
     </div>
