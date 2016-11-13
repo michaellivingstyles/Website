@@ -6,6 +6,13 @@
 
 jQuery.noConflict();
 
+function genText( txt, sub )
+{
+	var s = txt.indexOf(sub);
+	if( s < 0) return '';
+	var e = txt.substring(s+sub.length);
+	return txt.substring(0, s)+"<strong>"+sub+"</strong>"+e;
+}
 
 (function($) {
 	$.fn.autocomplete = function(params) {
@@ -26,17 +33,11 @@ jQuery.noConflict();
 			//Container
 			var searchContainer = $(".autocomplete-container");
 			var input = $("#stext");
-			var anchor = $(".searchbarmiddle");
 			//Proposals
-			var proposals = $('<div></div>')
-				.addClass('proposal-box')
-				.css('width', input.outerWidth() )
-			var proposalList = $('<ul></ul>')
-				.addClass('proposal-list');
+			var proposals = $('#skey')  //$('<div></div>') //
+			var proposalList = $('<p></p>')
 			proposals.append(proposalList);
 			input.keydown(function(e) {
-				//searchContainer.css("top", anchor.top+input.outerHeight());
-				//searchContainer.css("left", anchor.offset().left);
 				switch(e.which) {
 					case 38: // Up arrow
 					e.preventDefault();
@@ -82,26 +83,14 @@ jQuery.noConflict();
 					currentSelection = -1;
 					proposalList.empty();
 					if(input.val() != '' && input.val().length >= 3){
-						searchContainer.show();
+						searchContainer.show(); 
 						var word = "^" + input.val() + ".*";
 						proposalList.empty();
 						for(var test in params.hints){
 							if(params.hints[test].match(word)){
 								currentProposals.push(params.hints[test]);	
-								var element = $('<li></li>')
-									.html(params.hints[test])
-									.addClass('proposal')
-									.click(function(){
-										input.val($(this).html());
-										proposalList.empty();
-										params.onSubmit(input.val());
-									})
-									.mouseenter(function() {
-										$(this).addClass('selected');
-									})
-									.mouseleave(function() {
-										$(this).removeClass('selected');
-									});
+								var element = $('<dd></dd>')
+									.html(genText(params.hints[test],input.val()));
 								proposalList.append(element);
 							}
 						}
@@ -115,7 +104,7 @@ jQuery.noConflict();
 				//proposalList.empty();
 				params.onBlur();
 			});
-			searchContainer.append(proposals);		
+			//searchContainer.append(proposals);		
 		});
 
 		return this;
@@ -349,30 +338,35 @@ function genMenu(index)
 
 }
 
-var proposals = ['html5tricks', 'jquery', 'css3', 'chief', 'dog', 'drink', 'elephant', 'fruit', 'grave','hotel', 'illness', 'London', 'motorbike']
+var proposals = ['html5tricks', 'html55','html4','jquery', 'css3', 'chief', 'dog', 'drink', 'elephant', 'fruit', 'grave','hotel', 'illness', 'London', 'motorbike']
 
 jQuery(document).ready(function($)
 {
 	for( var i = 1; i <= 6; i++) genMenu(i)
 	jkmegamenu.render($)
-	$('#search-form').autocomplete({
+	$('.autocomplete-container').autocomplete({
 		hints: proposals,
 		onSubmit: function(text){
 			$('#message').html('Selected: <b>' + text + '</b>');			
 		}
 	});
 	$("#search").click(function(){
-	       $(".navbar-menu").fadeOut(1000)
-	       $(".navbar-search").fadeOut(1000,function(){
-	       	$(".searchbar").fadeIn(1000,function(){
+	       $(".navbar-menu").fadeOut(500)
+	       $(".navbar-search").fadeOut(500,function(){
+	       	//$(".searchbar").fadeIn(500,function(){
+	       		$(".searchbarleft").css("left","50%")
+	       		$(".searchbar").fadeIn(500)
+	       		$(".searchbarleft").animate({left:'25%'})
+	       		$("#stext").val('')
 	       		$("#stext").focus()
-	       	})
+	       	//})
 	        })
     	})
     	$("#close").click(function(){ 		
-      	 $(".searchbar").fadeOut(1000, function(){
-      	 	$(".navbar-menu").fadeIn(1000)
-	       	$(".navbar-search").fadeIn(1000)
+    		$('.autocomplete-container').fadeOut(500)
+      	 $(".searchbar").fadeOut(500, function(){
+      	 	$(".navbar-menu").fadeIn(500)
+	       	$(".navbar-search").fadeIn(500)
 	        })
     	})
 })
