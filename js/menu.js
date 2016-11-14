@@ -342,6 +342,139 @@ function genMenu(index)
 
 }
 
+	var alltypes = ["TABLES","CHAIRS","STOOLS","SOFAS","OTHER SEATS","TV UNITS","BEDS","MATTRESSES",
+				   "DRAWERS","CABINETS","STORAGES","DECORS","LIGHTING","RUGS","TEXTILES","NURSERY",
+				   "COOKWARE","TABLEWARE","REPLICAS"];
+	var typeimgs = [11,5,5,9,6,2];
+function genTypes()
+{
+	var rows = Math.ceil(alltypes.length / 6);
+	var mcon = "";
+	var index = 0;
+	for(var row = 1; row <= rows; row++)
+	{
+		mcon += '<div class="shopbytypesrow">';
+		for( var col = 1; col <= 6; col++)
+		{
+			mcon += '<div id="type'+index+'" class="shopbytypescol';
+			if( col != 6)  mcon += ' shopbytypescolsep';
+			mcon += '" onmouseover="mouseOverType('+index+')" onmouseout="mouseOutType('+index+')" ';
+			mcon += '" onclick="clickType('+index+')">';
+			mcon += '<img class="shopbytypescolbg" src="img/type-fill.jpg">';
+			mcon += '<img class= "shopbytypescolicon"  src="img/type_'+alltypes[index].toLowerCase()+'.svg">';
+			mcon += '<label id="typel'+index+'"></label>';
+			mcon += '<img id="typei'+index+'" src="img/ico_close_wh.svg" class="shopbytypescolicon" style="width:50px;left:50%;transform:translate(-50%);display:none">';
+			mcon += '<p id = "typep'+index+'">'+alltypes[index].toUpperCase()+'</p>';
+			mcon += '<a><img id="typeshow'+index+'" style="display:none"></a>';
+			mcon += '</div>';
+			if( ++index >= alltypes.length) break;
+		}
+		mcon += '</div>';
+		if( index >= alltypes.length) break;
+	 }
+	 var s = document.getElementById("shopbytypes");
+	 s.innerHTML = mcon;
+}
+
+function mouseOverType(index)
+{	
+	var curDiv = document.getElementById("type"+index);
+	if( curDiv.className.indexOf("disable") >= 0 ) return;
+	var curDiv = document.getElementById("typep"+index);
+	curDiv.className = "shopbytypescolphover";
+	curDiv = document.getElementById("typel"+index);
+	curDiv.className = "shopbytypescollabelhover";
+}
+
+function mouseOutType(index)
+{	
+	var curDiv = document.getElementById("type"+index);
+	if( curDiv.className.indexOf("disable") >= 0 ) return;
+	var curDiv = document.getElementById("typei"+index);
+	if( curDiv.style.display == "none")
+	{
+		var curDiv = document.getElementById("typel"+index);
+		curDiv.className = "";
+		curDiv = document.getElementById("typep"+index);
+		debugout(String(index)+"mouseover"+curDiv.className);
+		curDiv.className = "";
+	}
+
+}
+
+function showType(index)
+{
+	var total = typeimgs[index];
+	if( total <= 0) return;
+	var row = Math.floor(index / 6);
+	var col = 0;
+	if( total < 5 && total < index % 6) col = (index % 6) - total;
+	var start = 6*row + col;
+	for( var j = 0; j < start; j++)
+	{
+		var curDiv = document.getElementById("type"+j);
+		curDiv.className += " shopbytypesdisable";
+	}
+	for( var i = 0; i < total; i++)
+	{
+		if( start + i == index) start += 1;
+		var divid = "typeshow"+ (start + i);
+		var curDiv = document.getElementById(divid);
+		curDiv.src =  'img/type_'+alltypes[index].toLowerCase()+(i+1)+'.jpg';
+		curDiv.style.display = "block";
+		curDiv = document.getElementById("typel"+(start+i));
+		curDiv.style.display = "none";
+	}
+	for( var j = start+i; j < alltypes.length; j++)
+	{
+		if( j == index) continue;
+		var curDiv = document.getElementById("type"+j);
+		curDiv.className += " shopbytypesdisable";
+	}
+}
+
+function hideType(index)
+{
+	var total = typeimgs[index];
+	if( total <= 0) return;
+	var row = Math.floor(index / 6);
+	var col = 0;
+	if( total < 5 && total < index % 6) col = index % 6 - total;
+	var start = 6*row + col;
+	for( var j = 0; j < alltypes.length; j++)
+	{
+		var curDiv = document.getElementById("type"+j);
+		var classVal = curDiv.getAttribute("class");
+		classVal = classVal.replace("shopbytypesdisable","");
+		curDiv.setAttribute("class",classVal );
+	}
+	for( var i = 0; i < total; i++)
+	{
+		if( start + i == index) start += 1;
+		var divid = "typeshow"+ (start + i);
+		var curDiv = document.getElementById(divid);
+		curDiv.style.display = "none";
+		curDiv = document.getElementById("typel"+(start+i));
+		curDiv.style.display = "block";
+	}
+}
+
+function clickType(index)
+{
+	var curDiv = document.getElementById("type"+index);
+	if( curDiv.className.indexOf("disable") >= 0 ) return;
+	
+	var curDiv = document.getElementById("typei"+index);
+	if( curDiv.style.display == "none"){
+		curDiv.style.display = "block";
+		showType(index);
+	}
+	else{
+		curDiv.style.display = "none";
+		hideType(index);
+	}
+}
+
 var proposals = ['html5tricks', 'html55','html4','jquery', 'css3', 'chief', 'dog', 'drink', 'elephant', 'fruit', 'grave','hotel', 'illness', 'London', 'motorbike']
 
 var fadeTimer1 = null;
@@ -411,4 +544,21 @@ jQuery(document).ready(function($)
 		        $('.bx-wrapper .bx-next').fadeOut();
 		}, 1500);
       });
+      
+      genTypes();
+ 	$('#smlink1').click(function(){ 		
+    		$('#smlink2').removeClass("smactive")
+    		$('#smlink1').addClass("smactive")
+    		$(".shopbyhome").fadeOut(500, function(){
+      	 	$(".shopbytypes").fadeIn(500)
+	        })
+    	});
+    	$('#smlink2').click(function(){ 		
+    		$('#smlink1').removeClass("smactive")
+    		$('#smlink2').addClass("smactive")
+    		$(".shopbytypes").fadeOut(500, function(){
+      	 	$(".shopbyhome").fadeIn(500)
+	        })
+    	});
+
 })

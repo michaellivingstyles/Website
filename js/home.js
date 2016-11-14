@@ -3,13 +3,16 @@ function debugout(txt)
 	var dbg = document.getElementById("debug");
 	dbg.innerHTML = txt;
 }
+/*-------------------------------------------------------------------------------------------*/
 
+
+/*-------------------------------------------------------------------------------------------*/
 function mouseOverCatalog(index)
 {	
-      var divid = "shopbycatimg"+index;
+      var divid = "shopbyhomeimg"+index;
 	var curDiv = document.getElementById(divid);
 	//debugout(String(index)+"mouseover"+curDiv.className);
-	curDiv.className ="shopbycatimgexp";
+	curDiv.className ="shopbyhomeimgexp";
 
 }
 function mouseOutCatalog(index)
@@ -19,10 +22,10 @@ function mouseOutCatalog(index)
 	var t = String(stt.innerHTML);
 	if( t.length < 17)  //EXPAND
 	{
-		var divid = "shopbycatimg"+index;
+		var divid = "shopbyhomeimg"+index;
 		var curDiv = document.getElementById(divid);
 		//debugout(String(index)+"mouseover"+curDiv.className);
-		curDiv.className ="shopbycatimg";
+		curDiv.className ="shopbyhomeimg";
 	}
 }
 	
@@ -47,7 +50,7 @@ function hideCatalog(index)
 	for( var i = 1; i <= 6; i++)
 	{
 		if( i != index){
-			var divid = "shopbycatimg"+ i;
+			var divid = "shopbyhomeimg"+ i;
 			var anoDiv = document.getElementById(divid);
 			anoDiv.style.display = "none";
 		}
@@ -56,7 +59,7 @@ function hideCatalog(index)
 	}
 	for( var i = 1; i <= 3; i++)
 	{
-		var colDiv = document.getElementById("shopbycatcol"+ i);
+		var colDiv = document.getElementById("shopbyhomecol"+ i);
 		if( i < 3){
 			colDiv.style.marginRight = "1.2821%";
 		}
@@ -66,13 +69,13 @@ function hideCatalog(index)
 
 function showCatalog(index)
 {
-	var divid = "shopbycatimg"+ index;
+	var divid = "shopbyhomeimg"+ index;
 	var curDiv = document.getElementById(divid);
 	curDiv.style.marginBottom = "30px";
 	for( var i = 1; i <= 6; i++)
 	{
 		if( i != index){
-			var divid = "shopbycatimg"+ i;
+			var divid = "shopbyhomeimg"+ i;
 			var anoDiv = document.getElementById(divid);
 			anoDiv.style.display = "block";
 		}
@@ -82,7 +85,7 @@ function showCatalog(index)
 	}
 	for( var i = 1; i <= 3; i++)
 	{
-		var colDiv = document.getElementById("shopbycatcol"+ i);
+		var colDiv = document.getElementById("shopbyhomecol"+ i);
 		if( i < 3){
 			colDiv.style.marginRight = "2.5640%";
 		}
@@ -92,7 +95,7 @@ function showCatalog(index)
 
 function genCatalog(index)
 {
-		var divid = "shopbycatimg"+ index;
+		var divid = "shopbyhomeimg"+ index;
 		var curDiv = document.getElementById(divid);
 		curDiv.style.marginBottom = "15px";
 		for( var j = 1; j <= 3; j++)
@@ -195,3 +198,5 @@ function getImgTip(index, col, n) {
     tip += "<br>125  Styles";
     return tip;
 }
+
+/*-------------------------------------------------------------------------------------------*/
