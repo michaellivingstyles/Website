@@ -2,6 +2,7 @@
 @font-face {font-family: 'RobotoReg'; src: url('/fonts/Roboto-Regular.ttf');}
 @font-face {font-family: 'RobotoMed'; src: url('/fonts/Roboto-Medium.ttf');}
 @font-face {font-family: 'GraySmall'; src: url('/fonts/Roboto-LightItalic.ttf');}
+@font-face {font-family: 'GraySmallBold'; src: url('/fonts/Roboto-MediumItalic.ttf');}
 @font-face {font-family: 'GrayText'; src: url('/fonts/Miramar.ttf');}
 @font-face {font-family: 'GrayBold'; src: url('/fonts/Miramar-Bold.ttf');}
 *{margin:0; padding:0}
