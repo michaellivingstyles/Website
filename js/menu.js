@@ -475,6 +475,92 @@ function clickType(index)
 	}
 }
 
+/*-------------------------------------------------------------*/
+	var Membersp = ["NATURE PHOTOGRAPHY","WOODEN WONDERS","THE ORIENTAL PRINCESS","STEPPING IN","BOLD BEDSPREADS","AFTERNOON DRINKS"];
+	var desc = ["Anthony Glick Beach and Wildlife Prints","Bohemian Wooden Furniture Designs","Treasured Pieces and Master Ornaments","Colourful and Quirky Coir Doormats","Modern and Retro Quilt Cover Sets","Beverage Cabinets and Plush Seats"];
+function genMembersp()
+{
+	var rows = Math.ceil(Membersp.length / 3);
+	var mcon = "";
+	var index = 0;
+	for(var row = 1; row <= rows; row++)
+	{
+		mcon += '<div class="membersprow">';
+		for( var col = 1; col <= 3; col++)
+		{			
+			mcon += '<div id="membersp'+index+'" class="memberspcol';
+			if( col != 3)  mcon += ' memberspcolsep';
+			mcon += '">';
+			mcon += '<div id="membersppreview'+index+'" style="display:none"></div>';
+			mcon += '<div id="memberspc'+index+'" style="display:block">';
+			mcon += '<img class="memberspcolimg"  src="img/camp'+(index+1)+'.jpg">';
+			mcon += '<p id="membersptitle'+index+'">'+Membersp[index] + "<br>";
+			mcon += '<span>'+desc[index] + '</span></p>';
+			mcon += '<label>Ends <strong>Tomorrow 23:00</strong></label>';
+			mcon += '<div class="memberspbut">';
+			mcon += '<div class="memberspbut1"><a id="memberspbut1-'+index+'"   onclick="clickMembersp('+index+')"><p>PREVIEW</p></a></div>';
+			mcon += '<div class="memberspbut2"><a id="memberspbut2-'+index+'" ><p>SHOP SALE ›</p></a></div>';
+			mcon += '</div></div></div>';
+			if( ++index >= Membersp.length) break;
+		}
+		mcon += '</div>';
+		if( index >= Membersp.length) break;
+	 }
+	 var s = document.getElementById("membersp");
+	 s.innerHTML = mcon;
+}
+
+function showMembersp(index)
+{
+	var curDiv = document.getElementById("membersppreview"+index);
+	if(curDiv.innerHTML.length == 0)
+	{
+		var mcon = '<div class="memberspcolpreview" >';
+		mcon += '<a onclick="clickMembersp('+index+')"><img class="memberspcolpreviewicon"  src="img/ico_close.svg"></a>';
+		mcon += '</div>';
+		var n = 1;
+		for( var row = 0; row < 2; row++)
+		{
+			mcon += '<div class="memberspcolpreview">';
+			for( var i = 1; i <= 3; i++)
+			{
+				mcon += '<div class="memberspcolpreviewcol'
+				if( i != 3) mcon += ' memberspcolpreviewcolsep';
+				mcon += '">';
+				mcon += '<a href=""><img class="memberspcolimg"  src="img/camp'+(index+1)+"-"+n+'.jpg"></a>';
+				mcon += '</div>';
+				n++;
+			}
+			mcon += '</div><div class="clear"></div>';
+		}
+		mcon += '<div class="memberspcolpreview" >';
+		mcon += '<div class="memberspcolpreviewbut"><a href="" ><p>VIEW ALL  ›</p></a></div>';
+		mcon += '</div><div class="clear"></div>';
+		curDiv.innerHTML = mcon;
+	}
+	curDiv.style.display = "block";
+}
+
+function hideMembersp(index)
+{
+	var curDiv = document.getElementById("membersppreview"+index);
+	curDiv.style.display = "none";
+}
+
+function clickMembersp(index)
+{
+	var curDiv = document.getElementById("memberspc"+index);
+	if( curDiv.style.display == "none"){
+		hideMembersp(index);
+		curDiv.style.display = "block";
+	}
+	else{
+		curDiv.style.display = "none";
+		showMembersp(index);
+	}
+}
+
+/*-------------------------------------------------------------*/
 var proposals = ['html5tricks', 'html55','html4','jquery', 'css3', 'chief', 'dog', 'drink', 'elephant', 'fruit', 'grave','hotel', 'illness', 'London', 'motorbike']
 
 var fadeTimer1 = null;
@@ -516,8 +602,8 @@ jQuery(document).ready(function($)
             mode: 'fade',
             speed: 1000,
             auto: true,
-            pause:8000,
-            autoHover: true
+            pause:8000
+            //,autoHover: true
             //,prevSelector: '.leftcontrol'
         });
       }
@@ -546,18 +632,38 @@ jQuery(document).ready(function($)
       });
       
       genTypes();
- 	$('#smlink1').click(function(){ 		
-    		$('#smlink2').removeClass("smactive")
-    		$('#smlink1').addClass("smactive")
-    		$(".shopbyhome").fadeOut(500, function(){
+      genMembersp();
+ 	$('#smlink1').click(function(){ 	
+ 		if( $('#smlink1').hasClass("smactive") ) return;
+ 		var a = $('#smlink2');
+ 		var b = $(".shopbyhome");
+		if( $('#smlink3').hasClass("smactive") ){ a = $('#smlink3'); b = $(".membersp");}
+    		a.removeClass("smactive")
+    		$('#smlink1').addClass("smactive");
+    		b.fadeOut(500, function(){
       	 	$(".shopbytypes").fadeIn(500)
 	        })
     	});
-    	$('#smlink2').click(function(){ 		
-    		$('#smlink1').removeClass("smactive")
-    		$('#smlink2').addClass("smactive")
-    		$(".shopbytypes").fadeOut(500, function(){
+ 	$('#smlink2').click(function(){ 	
+ 		if( $('#smlink2').hasClass("smactive") ) return;
+ 		var a = $('#smlink1');
+ 		var b = $(".shopbytypes");
+		if( $('#smlink3').hasClass("smactive") ){ a = $('#smlink3'); b = $(".membersp");}
+    		a.removeClass("smactive")
+    		$('#smlink2').addClass("smactive");
+    		b.fadeOut(500, function(){
       	 	$(".shopbyhome").fadeIn(500)
+	        })
+    	});
+    	$('#smlink3').click(function(){ 	
+ 		if( $('#smlink3').hasClass("smactive") ) return;
+ 		var a = $('#smlink1');
+ 		var b = $(".shopbytypes");
+		if( $('#smlink2').hasClass("smactive") ){ a = $('#smlink2'); b = $(".shopbyhome");}
+    		a.removeClass("smactive")
+    		$('#smlink3').addClass("smactive");
+    		b.fadeOut(500, function(){
+      	 	$(".membersp").fadeIn(500)
 	        })
     	});
 
